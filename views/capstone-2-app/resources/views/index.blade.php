@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 <!--
-    
+
 TemplateMo 559 Zay Shop
 
 https://templatemo.com/tm-559-zay-shop
@@ -26,7 +26,6 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
-
 
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
@@ -84,6 +83,54 @@ https://templatemo.com/tm-559-zay-shop
     </nav>
     <!-- Close Header -->
 
+    <div class="content m-5 bg-secondary bg-gradient p-3">
+        <div class="container-fluid">
+            <div class="card p-4">
+                <h3 class="text-center mb-3">Tabel Pengajuan</h3>
+                <table class="table table-striped border border-secondary">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Kode - Jurusan</th>
+                            <th>Berkas</th>
+                            <th>Status Berkas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>12345</td>
+                            <td>Asep Saepudin</td>
+                            <td>1 - Informatika</td>
+                            <td>Formulir Beasiswa<br>Surat Rekomendasi </td>
+                            <td>Belum</td>
+                        </tr>
+                        <tr>
+                            <td>12345</td>
+                            <td>Asep Saepudin</td>
+                            <td>1 - Informatika</td>
+                            <td>Formulir Beasiswa<br>Surat Rekomendasi </td>
+                            <td>Belum</td>
+                        </tr>
+                        <tr>
+                            <td>12345</td>
+                            <td>Asep Saepudin</td>
+                            <td>1 - Informatika</td>
+                            <td>Formulir Beasiswa<br>Surat Rekomendasi </td>
+                            <td>Belum</td>
+                        </tr>
+                        <tr>
+                            <td>12345</td>
+                            <td>Asep Saepudin</td>
+                            <td>1 - Informatika</td>
+                            <td>Formulir Beasiswa<br>Surat Rekomendasi </td>
+                            <td>Belum</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <!-- Start Script -->
     <script src="assets/js/jquery-1.11.0.min.js"></script>

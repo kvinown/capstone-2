@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('index');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -26,5 +26,4 @@ Route::get('guest', function () {
 Route::get('app', function () {
     return view('layouts/app');
 });
-
 require __DIR__.'/auth.php';

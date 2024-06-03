@@ -18,7 +18,9 @@
   "homepage": "https://github.com/kvinown/capstone-2#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "mysql": "^2.18.1"
+    "http-proxy-middleware": "^3.0.0",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.1"

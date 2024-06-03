@@ -17,13 +17,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('index', function () {
-    return view('index');
+Route::get('/index', function () {
+    return view('periodeBeasiswa.index');
 });
-Route::get('guest', function () {
-    return view('layouts/guest');
+Route::get('/index2', function () {
+    return view('periodeBeasiswa.create');
 });
-Route::get('app', function () {
-    return view('layouts/app');
-});
+
+
 require __DIR__.'/auth.php';

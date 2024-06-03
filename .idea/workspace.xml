@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="" />
+    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/route/route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/master.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/capstone-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/capstone-2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +40,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -17,10 +54,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2h89m9wWQdZFR2kqi61pWkVkO4O" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,11 +68,21 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app",
+    "last_opened_file_path": "C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Joseph Adiwiguna\Documents\GitHub\capstone-2\views\capstone-2-app\resources\views" />
+      <recent name="C:\Users\Joseph Adiwiguna\Documents\GitHub\capstone-2\views\capstone-2-app\resources\views\fakultas" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -52,6 +99,20 @@
       <option name="presentableId" value="Default" />
       <updated>1716964994985</updated>
       <workItem from="1716964999100" duration="50000" />
+      <workItem from="1717086176162" duration="776000" />
+      <workItem from="1717087592198" duration="642000" />
+      <workItem from="1717144391203" duration="54000" />
+      <workItem from="1717144458769" duration="31000" />
+      <workItem from="1717144504103" duration="4000" />
+      <workItem from="1717147740429" duration="597000" />
+      <workItem from="1717342018628" duration="63000" />
+      <workItem from="1717347161038" duration="782000" />
+      <workItem from="1717381747094" duration="3517000" />
+      <workItem from="1717386186808" duration="18000" />
+      <workItem from="1717392612791" duration="4110000" />
+      <workItem from="1717411419654" duration="463000" />
+      <workItem from="1717411915198" duration="220000" />
+      <workItem from="1717412170549" duration="15839000" />
     </task>
     <servers />
   </component>

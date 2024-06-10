@@ -1,23 +1,26 @@
 const express = require('express');
-const path = require('path');
-const router = require('./route/route.js');
+const session = require('express-session');
+const router = require('./route/route-test'); // Gunakan path relatif
+
 const app = express();
 
-const server = app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-});
+app.set('view engine', 'pug');
+app.set('views', 'views');
 
-const io = require('socket.io')(server, {
-    cors: {
-        origin: ['http://127.0.0.1:8000'],
-    },
-});
+// Middleware to parse URL-encoded data
+app.use(express.urlencoded({ extended: false }));
 
-io.on('connection', socket => {
-    app.use(router);
-    console.log(socket.id);
-    socket.emit('socket-id', socket.id); // Send socket ID to the client
-});
+// Middleware to parse JSON data
+app.use(express.json());
 
-// Apply router
+app.use(session({
+    secret: 'your-secret-key', // Ganti dengan secret key yang aman
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use(router);
+
+app.listen(8888, () => {
+    console.log('Server run at port 8888');
+});

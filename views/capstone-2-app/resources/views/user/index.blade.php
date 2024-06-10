@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Tabel Pengguna</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="">
+                    <a href="{{route('user-create')}}">
                         <button class="btn btn-primary">Tambah Pengguna</button>
                     </a>
                 </div>

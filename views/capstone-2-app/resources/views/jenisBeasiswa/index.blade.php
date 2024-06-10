@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Jenis Beasiswa</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="">
+                    <a href="{{route('jenisBeasiswa-index')}}">
                         <button class="btn btn-primary">Tambah Beasiswa</button>
                     </a>
                 </div>

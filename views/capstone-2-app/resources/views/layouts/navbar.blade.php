@@ -1,3 +1,4 @@
+<!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
@@ -18,17 +19,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Beasiswa</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pengguna
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Fakultas</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Program Studi</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Mahasiswa</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Pengguna</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Contact</a>
@@ -60,3 +52,4 @@
 
     </div>
 </nav>
+<!-- Close Header -->

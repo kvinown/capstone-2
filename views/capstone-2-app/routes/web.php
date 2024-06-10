@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('home');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -20,6 +20,12 @@ Route::middleware('auth')->group(function () {
     // Fakultas
     Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
 });
+
+Route::get('/fakultas-index', function () {
+    return view('fakultas.index');
+})->name('fakultas-index');
+
+
 
 Route::get('/periode', function () {
     return view('periodeBeasiswa.index');

@@ -50,7 +50,7 @@ Web application for applying for internal scholarships with case studies at the 
 
 1. **Pindah ke direktori Back End**
     ```sh
-    cd back-end
+    cd .\back-end\
     ```
 
 2. **Install Node.js dependencies**
@@ -66,14 +66,18 @@ Web application for applying for internal scholarships with case studies at the 
     ```sh
     npx knex seed:run --knexfile ./config/knexfile.js
     ```
-4. **Start Server**
+5. **Start Server**
     ```sh
    nodemon app.js
     ```
 
 #### Front End 
 
-1. **Install Laravel dependencies**
+1. **New Terminal and Change Directory**
+    ```sh
+    cd .\views\capstone-2-app\
+    ```
+2. **Install Laravel dependencies**
     ```sh
     composer install
     ```

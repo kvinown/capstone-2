@@ -13,18 +13,28 @@
                 <table class="table table-striped border border-secondary">
                     <thead>
                     <tr>
-                        <th>ID Fakultas</th>
-                        <th>Nama Fakultas</th>
+                        <th>ID Program Studi</th>
+                        <th>Nama Program Studi</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @if(!empty($fakultasData))
-                        @foreach($fakultasData as $fakultas)
+                    <tr>
+                        <td>12345</td>
+                        <td>Fakultas Teknologi Informasi</td>
+                        <td>
+                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                        </td>
+                    </tr>
+                    @if(!empty($programStudiData))
+                        @foreach($programStudiData as $programStudi)
                             <tr>
-                                <td>{{$fakultas->id}}</td>
-                                <td>{{$fakultas->nama}}</td>
+                                <td>{{$programStudi->id}}</td>
+                                <td>{{$programStudi->nama}}</td>
                                 <td>
                                     <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
                                 </td>

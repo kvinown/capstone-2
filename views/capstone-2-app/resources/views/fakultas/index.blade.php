@@ -27,6 +27,20 @@
                             <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                         </td>
                     </tr>
+                    @if(!empty($fakultasData))
+                        @foreach($fakultasData as $fakultas)
+                            <tr>
+                                <td>{{$fakultas->id}}</td>
+                                <td>{{$fakultas->nama}}</td>
+                                <td>
+                                    <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

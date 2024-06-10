@@ -46,48 +46,59 @@ Web application for applying for internal scholarships with case studies at the 
 
 ### Steps
 
-1. **Clone the repository**
+#### Back End
+
+1. **Pindah ke direktori Back End**
     ```sh
-    git clone https://github.com/your-repo/capstone-2.git
-    cd capstone-2
+    cd back-end
     ```
 
-2. **Install Laravel dependencies**
-    ```sh
-    composer install
-    ```
-
-3. **Install Node.js dependencies**
+2. **Install Node.js dependencies**
     ```sh
     npm install
     ```
 
-4. **Setup environment variables**
+3. **Run database migrations**
+    ```sh
+    npx knex migrate:latest --knexfile ./config/knexfile.js
+    ```
+4. **Start Server**
+    ```sh
+   nodemon app.js
+    ```
+
+#### Front End 
+
+1. **Install Laravel dependencies**
+    ```sh
+    composer install
+    ```
+
+2. **Setup environment variables**
     ```sh
     cp .env.example .env
     ```
-   Edit the `.env` file with your database and other configurations.
+   Edit file `.env` dengan konfigurasi database dan lainnya.
 
-5. **Generate application key**
+3. **Generate application key**
     ```sh
     php artisan key:generate
     ```
 
-6. **Run database migrations**
+4. **Run database migrations**
     ```sh
     php artisan migrate
     ```
 
-7. **Start the development server**
+5. **Start the development server**
     ```sh
     php artisan serve
     ```
 
-8. **Compile assets**
+6. **Compile assets**
     ```sh
     npm run dev
     ```
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-****

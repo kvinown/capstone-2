@@ -5,32 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/route/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/capstone-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/capstone-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/config/db_config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/config/knexfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/controller/fakultasController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/migration/create_fakultas_table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/model/fakultas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/model/model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/route/route-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/.bin/nodemon" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/.bin/nodemon" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/.bin/nodemon.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/.bin/nodemon.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/bin/nodemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/bin/nodemon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/authors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/authors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/help.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/help.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/logo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/logo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/topics.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/topics.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/usage.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/usage.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/whoami.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/doc/cli/whoami.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/jsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/cli/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/cli/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/cli/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/cli/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/command.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/command.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/defaults.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/exec.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/exec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/config/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/help/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/help/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/match.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/run.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/run.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/signals.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/signals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/watch.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/monitor/watch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/nodemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/nodemon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/add.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/rules/parse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/spawn.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/spawn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/bus.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/bus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/clone.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/clone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/colour.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/colour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/merge.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/utils/merge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/lib/version.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/node_modules/nodemon/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/node_modules/nodemon/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +83,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "kvinown"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kvinown/capstone-2.git",
+    "accountId": "61899458-fdf4-4fba-9cd7-6500343826d7"
+  }
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -59,34 +104,39 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2h89m9wWQdZFR2kqi61pWkVkO4O" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Kuliah - Kevin Owen/SMT4/PWL/Project/capstone-2/capstone-2/back-end/model&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2023.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Joseph Adiwiguna\Documents\GitHub\capstone-2\views\capstone-2-app\resources\views" />
-      <recent name="C:\Users\Joseph Adiwiguna\Documents\GitHub\capstone-2\views\capstone-2-app\resources\views\fakultas" />
+      <recent name="D:\Kuliah - Kevin Owen\SMT4\PWL\Project\capstone-2\capstone-2\back-end\model" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17011.119" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.17011.119" />
       </set>
     </attachedChunks>
   </component>
@@ -99,24 +149,15 @@
       <option name="presentableId" value="Default" />
       <updated>1716964994985</updated>
       <workItem from="1716964999100" duration="50000" />
-      <workItem from="1717086176162" duration="776000" />
-      <workItem from="1717087592198" duration="642000" />
-      <workItem from="1717144391203" duration="54000" />
-      <workItem from="1717144458769" duration="31000" />
-      <workItem from="1717144504103" duration="4000" />
-      <workItem from="1717147740429" duration="597000" />
-      <workItem from="1717342018628" duration="63000" />
-      <workItem from="1717347161038" duration="782000" />
-      <workItem from="1717381747094" duration="3517000" />
-      <workItem from="1717386186808" duration="18000" />
-      <workItem from="1717392612791" duration="4110000" />
-      <workItem from="1717411419654" duration="463000" />
-      <workItem from="1717411915198" duration="220000" />
-      <workItem from="1717412170549" duration="15839000" />
+      <workItem from="1717992592353" duration="721000" />
+      <workItem from="1717999647060" duration="3783000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

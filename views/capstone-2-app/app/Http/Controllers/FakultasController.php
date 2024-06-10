@@ -17,7 +17,6 @@ class FakultasController extends Controller
     {
         $response = $this->client->request('GET', '/api/fakultas');
         $statusCode = $response->getStatusCode();
-
         if ($statusCode == 200) {
             $fakultas = json_decode($response->getBody()->getContents());
             $fakultasData = $fakultas->data;

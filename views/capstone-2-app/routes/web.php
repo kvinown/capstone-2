@@ -21,11 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
 });
 
-Route::get('/fakultas-index', function () {
-    return view('fakultas.index');
-})->name('fakultas-index');
-
-
 
 Route::get('/periode', function () {
     return view('periodeBeasiswa.index');

@@ -22,7 +22,7 @@ class Model {
 		});
 	}
 
-	find(id, callback) {
+	edit(id, callback) {
 		const query = `SELECT * FROM ${this.table} WHERE id = ?`;
 		this.db.query(query, [id], (err, results) => {
 			if (err) return callback(err, null);
@@ -38,13 +38,15 @@ class Model {
 		});
 	}
 
-	update(id, data, callback) {
+	update(data, callback) {
+		const id = data.id;
 		const query = `UPDATE ${this.table} SET ? WHERE id = ?`;
 		this.db.query(query, [data, id], (err, result) => {
 			if (err) return callback(err, null);
 			callback(null, result.affectedRows);
 		});
 	}
+
 
 	delete(id, callback) {
 		const query = `DELETE FROM ${this.table} WHERE id = ?`;
@@ -53,6 +55,7 @@ class Model {
 			callback(null, result.affectedRows);
 		});
 	}
+
 }
 
 module.exports = Model;

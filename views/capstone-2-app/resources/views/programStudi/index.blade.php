@@ -26,10 +26,10 @@
                                 <td>{{$programStudi->id}}</td>
                                 <td>{{$programStudi->nama}}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="{{route('programStudi.edit', $programStudi->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="{{route('programStudi.delete', $programStudi->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
@@ -50,16 +50,4 @@
 @endsection
 
 @section('spc-js')
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script>
-        const socket = io('http://127.0.0.1:3000');
-
-        socket.on('connect', () => {
-            console.log('Connected to server');
-        });
-
-        socket.on('socket-id', (id) => {
-            document.getElementById('socket-id-value').textContent = id;
-        });
-    </script>
 @endsection

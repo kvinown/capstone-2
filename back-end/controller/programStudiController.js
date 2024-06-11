@@ -23,9 +23,9 @@ const create = (req, res) => {
 const store = (req, res) => {
     console.log('Recieved data from storing', req.body)
     const programStudi ={
-        id: req.params.id,
-        nama: req.params.nama,
-        fakultas_id: req.params.fakultas_id,
+        id: req.body.id,
+        nama: req.body.nama,
+        fakultas_id: req.body.fakultas_id,
     }
     console.log('Data for storing', programStudi)
 

@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Tabel Program Studi</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="">
+                    <a href="{{route('programStudi.create')}}">
                         <button class="btn btn-primary">Tambah Program Studi</button>
                     </a>
                 </div>
@@ -26,10 +26,10 @@
                                 <td>{{$programStudi->id}}</td>
                                 <td>{{$programStudi->nama}}</td>
                                 <td>
-                                    <a href="{{ route('programStudi.edit', $programStudi->id) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('programStudi.destroy', $programStudi->id) }}" method="POST">
+                                    <form action="" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>

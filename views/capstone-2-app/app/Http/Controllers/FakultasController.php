@@ -21,9 +21,6 @@ class FakultasController extends Controller
             $fakultas = json_decode($response->getBody()->getContents());
             $fakultasData = $fakultas->data;
             return view('fakultas.index', compact('fakultasData'));
-        } else {
-            // Handle error or return an appropriate response/view
-            return view('error'); // Ensure you have an error view
         }
     }
 }

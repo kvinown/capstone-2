@@ -23,9 +23,9 @@ Route::middleware('auth')->group(function () {
 
     // Program Studi
     Route::get('/programStudi-index', [ProgramStudiController::class, 'index'])->name('programStudi.index');
-
+    Route::get('/programStudi-create', [ProgramStudiController::class, 'create'])->name('programStudi.create');
+    Route::post('/programStudi-store', [ProgramStudiController::class, 'store'])->name('programStudi.store');
 });
-
 
 Route::get('/periode', function () {
     return view('periodeBeasiswa.index');
@@ -75,7 +75,5 @@ Route::get('/fakultas', function () {
 Route::get('/createFakultas', function () {
     return view('fakultas.create');
 })->name('fakultas-create');
-
-
 
 require __DIR__.'/auth.php';

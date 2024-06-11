@@ -23,4 +23,35 @@ class FakultasController extends Controller
             return view('fakultas.index', compact('fakultasData'));
         }
     }
+
+    public function create()
+    {
+        $response = $this->client->request('GET', '/api/fakultas-create');
+        $statusCode = $response->getStatusCode();
+        if ($statusCode == 200) {
+            return view('fakultas.create');
+        } else {
+            // Handle error or return an appropriate response/view
+            return view('error'); // Ensure you have an error view
+        }
+    }
+
+    public function store(Request $request)
+    {
+        $data = [
+            'id' => $request->input('id'),
+            'nama' => $request->input('nama'),
+        ];
+
+        $response = $this->client->request('POST', '/api/fakultas-store', [
+            'json' => $data
+        ]);
+        $statusCode = $response->getStatusCode();
+        if ($statusCode == 200) {
+            return view('fakultas.store');
+        } else {
+            // Handle error or return an appropriate response/view
+            return view('error'); // Ensure you have an error view
+        }
+    }
 }

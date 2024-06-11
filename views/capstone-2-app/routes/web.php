@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FakultasController;
-use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,12 +19,15 @@ Route::middleware('auth')->group(function () {
 
     // Fakultas
     Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
+    Route::get('/fakultas-create', [FakultasController::class, 'create'])->name('fakultas.create');
+    Route::post('/fakultas-store', [FakultasController::class, 'store'])->name('fakultas.store');
 
-    // Program Studi
-    Route::get('/programStudi-index', [ProgramStudiController::class, 'index'])->name('programStudi.index');
-    Route::get('/programStudi-create', [ProgramStudiController::class, 'create'])->name('programStudi.create');
-    Route::post('/programStudi-store', [ProgramStudiController::class, 'store'])->name('programStudi.store');
+//    // Program Studi
+//    Route::get('/programStudi-index', [ProgramStudiController::class, 'index'])->name('programStudi.index');
+//    Route::get('/programStudi-create', [ProgramStudiController::class, 'create'])->name('programStudi.create');
+//    Route::post('/programStudi-store', [ProgramStudiController::class, 'store'])->name('programStudi.store');
 });
+
 
 Route::get('/periode', function () {
     return view('periodeBeasiswa.index');
@@ -75,5 +77,7 @@ Route::get('/fakultas', function () {
 Route::get('/createFakultas', function () {
     return view('fakultas.create');
 })->name('fakultas-create');
+
+
 
 require __DIR__.'/auth.php';

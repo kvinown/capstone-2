@@ -6,9 +6,14 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Jurusan</h3>
 
-                <form method="post" action="">
+                <form method="post" action="{{route('fakultas.store')}}">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
+                        <div class="form-group m-2">
+                            <label for="id" class="text-white mb-3">ID</label>
+                            <input type="text" class="form-control" id="id" placeholder="Masukan ID"
+                                   required name="id">
+                        </div>
                         <div class="form-group m-2">
                             <label for="namaFakultas" class="text-white mb-3">Nama Jurusan</label>
                             <input type="text" minlength="5" class="form-control" id="namaFakultas" placeholder="Masukan Nama Fakultas"

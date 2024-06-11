@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +20,10 @@ Route::middleware('auth')->group(function () {
 
     // Fakultas
     Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
+
+    // Program Studi
+    Route::get('/programStudi-index', [ProgramStudiController::class, 'index'])->name('programStudi.index');
+
 });
 
 

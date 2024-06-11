@@ -30,7 +30,7 @@ class Model {
 		});
 	}
 
-	create(data, callback) {
+	save(data, callback) {
 		const query = `INSERT INTO ${this.table} SET ?`;
 		this.db.query(query, data, (err, result) => {
 			if (err) return callback(err, null);

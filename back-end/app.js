@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const router = require('./route/route-test'); // Gunakan path relatif
+const router = require('./route/route'); // Gunakan path relatif
 
 const app = express();
 

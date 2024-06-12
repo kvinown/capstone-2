@@ -26,32 +26,19 @@ class FakultasController extends Controller
 
     public function create()
     {
-        $response = $this->client->request('GET', '/api/fakultas-create');
-        $statusCode = $response->getStatusCode();
-        if ($statusCode == 200) {
-            return view('fakultas.create');
-        } else {
-            // Handle error or return an appropriate response/view
-            return view('error'); // Ensure you have an error view
-        }
+        return view('fakultas.create');
     }
 
     public function store(Request $request)
     {
-        $data = [
-            'id' => $request->input('id'),
-            'nama' => $request->input('nama'),
-        ];
-
         $response = $this->client->request('POST', '/api/fakultas-store', [
-            'json' => $data
+            'json' => $request->all()
         ]);
-        $statusCode = $response->getStatusCode();
-        if ($statusCode == 200) {
-            return view('fakultas.store');
+        $responseData = json_decode($response->getBody()->getContents(), true);
+        if ($responseData['success']) {
+            return redirect(route('fakultas.index'))->with('success', 'Data berhasil ditambah');
         } else {
-            // Handle error or return an appropriate response/view
-            return view('error'); // Ensure you have an error view
+            return redirect(route('fakultas.index'))->with('error', 'Data gagal ditambah');
         }
     }
 }

@@ -30,7 +30,7 @@ const store = (req, res) => {
 
     new Fakultas().save(dataFakultas, (err, result) => {
         if (err) {
-            console.error('Error while saving program studi:', err)
+            console.error('Error while saving fakultas:', err)
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message })
         }
         res.status(201).json({ success: true, message: 'Data berhasil ditambah', data: result })

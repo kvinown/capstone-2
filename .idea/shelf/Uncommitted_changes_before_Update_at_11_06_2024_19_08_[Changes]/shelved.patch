@@ -1,0 +1,316 @@
+Index: views/capstone-2-app/routes/web.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nuse App\\Http\\Controllers\\ProfileController;\nuse App\\Http\\Controllers\\FakultasController;\nuse Illuminate\\Support\\Facades\\Route;\n\nRoute::get('/', function () {\n    return view('welcome');\n});\n\nRoute::get('/dashboard', function () {\n    return view('dashboard');\n})->middleware(['auth', 'verified'])->name('dashboard');\n\nRoute::middleware('auth')->group(function () {\n    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');\n    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');\n    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');\n\n    // Fakultas\n    Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');\n});\n\n\nRoute::get('/periode', function () {\n    return view('periodeBeasiswa.index');\n})->name('periode-index');\nRoute::get('/createPeriode', function () {\n    return view('periodeBeasiswa.create');\n})->name('periode-create');\n\nRoute::get('/role', function () {\n    return view('role.index');\n})->name('role-index');\nRoute::get('/createRole', function () {\n    return view('role.create');\n})->name('role-create');\n\nRoute::get('/user', function () {\n    return view('user.index');\n})->name('user-index');\nRoute::get('/createUser', function () {\n    return view('user.create');\n})->name('user-create');\n\nRoute::get('/prodi', function () {\n    return view('prodi.index');\n})->name('prodi-index');\nRoute::get('/createProdi', function () {\n    return view('prodi.create');\n})->name('prodi-create');\n\nRoute::get('/pengajuan', function () {\n    return view('pengajuan.index');\n})->name('pengajuan-index');\nRoute::get('/createPengajuan', function () {\n    return view('pengajuan.create');\n})->name('pengajuan-create');\n\nRoute::get('/jenis', function () {\n    return view('jenisBeasiswa.index');\n})->name('jenisBeasiswa-index');\nRoute::get('/createJenis', function () {\n    return view('jenisBeasiswa.create');\n})->name('jenisBeasiswa-create');\n\nRoute::get('/fakultas', function () {\n    return view('fakultas.index');\n})->name('fakultas-index');\nRoute::get('/createFakultas', function () {\n    return view('fakultas.create');\n})->name('fakultas-create');\n\n\n\nrequire __DIR__.'/auth.php';\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/capstone-2-app/routes/web.php b/views/capstone-2-app/routes/web.php
+--- a/views/capstone-2-app/routes/web.php	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/views/capstone-2-app/routes/web.php	(date 1718082274991)
+@@ -19,6 +19,8 @@
+ 
+     // Fakultas
+     Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
++    Route::get('/fakultas-create', [FakultasController::class, 'create'])->name('fakultas.create');
++    Route::post('/fakultas-store', [FakultasController::class, 'store'])->name('fakultas.store');
+ });
+ 
+ 
+Index: views/capstone-2-app/app/Http/Controllers/FakultasController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\nnamespace App\\Http\\Controllers;\n\nuse GuzzleHttp\\Client;\nuse Illuminate\\Http\\Request;\n\nclass FakultasController extends Controller\n{\n    private $client;\n\n    public function __construct()\n    {\n        $this->client = new Client(['base_uri' => 'http://localhost:8888']);\n    }\n\n    public function index()\n    {\n        $response = $this->client->request('GET', '/api/fakultas');\n        $statusCode = $response->getStatusCode();\n        if ($statusCode == 200) {\n            $fakultas = json_decode($response->getBody()->getContents());\n            $fakultasData = $fakultas->data;\n            return view('fakultas.index', compact('fakultasData'));\n        } else {\n            // Handle error or return an appropriate response/view\n            return view('error'); // Ensure you have an error view\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/capstone-2-app/app/Http/Controllers/FakultasController.php b/views/capstone-2-app/app/Http/Controllers/FakultasController.php
+--- a/views/capstone-2-app/app/Http/Controllers/FakultasController.php	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/views/capstone-2-app/app/Http/Controllers/FakultasController.php	(date 1718082465809)
+@@ -26,4 +26,28 @@
+             return view('error'); // Ensure you have an error view
+         }
+     }
++
++    public function create()
++    {
++        $response = $this->client->request('GET', '/api/fakultas-create');
++        $statusCode = $response->getStatusCode();
++        if ($statusCode == 200) {
++            return view('fakultas.create');
++        } else {
++            // Handle error or return an appropriate response/view
++            return view('error'); // Ensure you have an error view
++        }
++    }
++
++    public function store()
++    {
++        $response = $this->client->request('POST', '/api/fakultas-store');
++        $statusCode = $response->getStatusCode();
++        if ($statusCode == 200) {
++            return view('fakultas.store');
++        } else {
++            // Handle error or return an appropriate response/view
++            return view('error'); // Ensure you have an error view
++        }
++    }
+ }
+Index: back-end/controller/fakultasController.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Controller untuk menggunakan class Fakultas\r\nconst Fakultas = require('../model/Fakultas');\r\n\r\nconst index = (req, res) => {\r\n    // Buat instance Fakultas langsung tanpa menggunakan getInstance()\r\n    new Fakultas().all((err, fakultas) => {\r\n        if (err) {\r\n            return res.status(500).json({\r\n                success: false,\r\n                message: 'Internal server error',\r\n            });\r\n        }\r\n        res.status(200).json({\r\n            success: true,\r\n            data: fakultas,\r\n        });\r\n    });\r\n}\r\n\r\n\r\nmodule.exports = {\r\n    index,\r\n};\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/controller/fakultasController.js b/back-end/controller/fakultasController.js
+--- a/back-end/controller/fakultasController.js	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/back-end/controller/fakultasController.js	(date 1718082733543)
+@@ -16,8 +16,34 @@
+         });
+     });
+ }
++const store = (req, res) => {
++    const data = {
++        id :req.body.id,
++        nama:req.body.nama
++    } // Asumsi data dikirim melalui body request
++
++    // Buat instance Fakultas langsung tanpa menggunakan getInstance()
++    new Fakultas().create(data, (err, insertId) => {
++        if (err) {
++            return res.status(500).json({
++                success: false,
++                message: 'Internal server error',
++                error: err.message,
++            });
++        }
++        res.status(201).json({
++            success: true,
++            message: 'Record created successfully',
++            insertId: insertId,
++        });
++    });
++}
++
++const create = (req,res) =>{
++    res.render('fakultas/create')
++}
+ 
+ 
+ module.exports = {
+-    index,
++    index, create,store
+ };
+Index: views/capstone-2-app/resources/views/fakultas/create.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('layouts.master')\n\n@section('web-content')\n    <div class=\"content m-5 bg-secondary bg-gradient p-3\">\n        <div class=\"container-fluid\">\n            <div class=\"card p-4\">\n                <h3 class=\"text-center mb-3\">Penambahan Jurusan</h3>\n\n                <form method=\"post\" action=\"\">\n                    @csrf\n                    <div class=\"card-body bg-secondary rounded-3\">\n                        <div class=\"form-group m-2\">\n                            <label for=\"namaFakultas\" class=\"text-white mb-3\">Nama Jurusan</label>\n                            <input type=\"text\" minlength=\"5\" class=\"form-control\" id=\"namaFakultas\" placeholder=\"Masukan Nama Fakultas\"\n                                   required name=\"nama\">\n                        </div>\n                    </div>\n                    <button type=\"submit\" class=\"btn btn-info text-white mt-2\">Submit</button>\n                </form>\n            </div>\n        </div>\n    </div>\n@endsection\n\n@section('spc-js')\n@endsection\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/capstone-2-app/resources/views/fakultas/create.blade.php b/views/capstone-2-app/resources/views/fakultas/create.blade.php
+--- a/views/capstone-2-app/resources/views/fakultas/create.blade.php	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/views/capstone-2-app/resources/views/fakultas/create.blade.php	(date 1718085954782)
+@@ -6,7 +6,7 @@
+             <div class="card p-4">
+                 <h3 class="text-center mb-3">Penambahan Jurusan</h3>
+ 
+-                <form method="post" action="">
++                <form method="post" action="fakultas-store">
+                     @csrf
+                     <div class="card-body bg-secondary rounded-3">
+                         <div class="form-group m-2">
+Index: back-end/route/route-test.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const express = require('express')\r\n\r\nconst router = express.Router()\r\n\r\n\r\nconst fakultasController = require('../controller/fakultasController')\r\n\r\nrouter.get('/api/fakultas', fakultasController.index)\r\nmodule.exports = router\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/route/route-test.js b/back-end/route/route-test.js
+--- a/back-end/route/route-test.js	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/back-end/route/route-test.js	(date 1718080352846)
+@@ -6,4 +6,5 @@
+ const fakultasController = require('../controller/fakultasController')
+ 
+ router.get('/api/fakultas', fakultasController.index)
++router.get('/api/fakultas-create', fakultasController.create)
+ module.exports = router
+Index: back-end/config/knexfile.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const path = require('path');\r\n\r\nmodule.exports = {\r\n    development: {\r\n        client: 'mysql',\r\n        connection: {\r\n            host: 'localhost',\r\n            user: 'root',\r\n            password: 'root',\r\n            database: 'capstone-2'\r\n        },\r\n        migrations: {\r\n            directory: path.join(__dirname, '../migration') // Menggunakan path.join untuk menghindari kesalahan path\r\n        },\r\n        seeds: {\r\n            directory: path.join(__dirname, '../seed') // Menggunakan path.join untuk menghindari kesalahan path\r\n        }\r\n    }\r\n};\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/config/knexfile.js b/back-end/config/knexfile.js
+--- a/back-end/config/knexfile.js	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/back-end/config/knexfile.js	(date 1718029252287)
+@@ -6,7 +6,7 @@
+         connection: {
+             host: 'localhost',
+             user: 'root',
+-            password: 'root',
++            password: '',
+             database: 'capstone-2'
+         },
+         migrations: {
+Index: views/capstone-2-app/resources/views/fakultas/index.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('layouts.master')\n\n@section('web-content')\n    <div class=\"content m-5 bg-secondary bg-gradient p-3\">\n        <div class=\"container-fluid\">\n            <div class=\"card p-4\">\n                <h3 class=\"text-center mb-3\">Tabel Fakultas</h3>\n                <div class=\"mb-3 mt-2 ms-2\">\n                    <a href=\"{{route('fakultas-create')}}\">\n                        <button class=\"btn btn-primary\">Tambah Fakultas</button>\n                    </a>\n                </div>\n                <table class=\"table table-striped border border-secondary\">\n                    <thead>\n                    <tr>\n                        <th>ID</th>\n                        <th>Nama Fakultas</th>\n                        <th></th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    <tr>\n                        <td>12345</td>\n                        <td>Fakultas Teknologi Informasi</td>\n                        <td>\n                            <button class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"></i></button>\n                            <button class=\"btn btn-danger\"><i class=\"bi bi-trash-fill\"></i></button>\n                        </td>\n                    </tr>\n                    @if(!empty($fakultasData))\n                        @foreach($fakultasData as $fakultas)\n                            <tr>\n                                <td>{{$fakultas->id}}</td>\n                                <td>{{$fakultas->nama}}</td>\n                                <td>\n                                    <button class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"></i></button>\n                                </td>\n                                <td>\n                                    <button class=\"btn btn-danger\"><i class=\"bi bi-trash-fill\"></i></button>\n                                </td>\n                            </tr>\n                        @endforeach\n                    @endif\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n@endsection\n\n@section('spc-js')\n    <script src=\"https://cdn.socket.io/4.0.0/socket.io.min.js\"></script>\n    <script>\n        const socket = io('http://127.0.0.1:3000');\n\n        socket.on('connect', () => {\n            console.log('Connected to server');\n        });\n\n        socket.on('socket-id', (id) => {\n            document.getElementById('socket-id-value').textContent = id;\n        });\n    </script>\n@endsection\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/views/capstone-2-app/resources/views/fakultas/index.blade.php b/views/capstone-2-app/resources/views/fakultas/index.blade.php
+--- a/views/capstone-2-app/resources/views/fakultas/index.blade.php	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/views/capstone-2-app/resources/views/fakultas/index.blade.php	(date 1718080426765)
+@@ -47,18 +47,3 @@
+         </div>
+     </div>
+ @endsection
+-
+-@section('spc-js')
+-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+-    <script>
+-        const socket = io('http://127.0.0.1:3000');
+-
+-        socket.on('connect', () => {
+-            console.log('Connected to server');
+-        });
+-
+-        socket.on('socket-id', (id) => {
+-            document.getElementById('socket-id-value').textContent = id;
+-        });
+-    </script>
+-@endsection
+Index: back-end/config/db_config.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module.exports = {\r\n    db : {\r\n        host: 'localhost',\r\n        user: 'root',\r\n        password: 'root',\r\n        database: 'capstone-2',\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/back-end/config/db_config.js b/back-end/config/db_config.js
+--- a/back-end/config/db_config.js	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/back-end/config/db_config.js	(date 1718029252281)
+@@ -2,7 +2,7 @@
+     db : {
+         host: 'localhost',
+         user: 'root',
+-        password: 'root',
++        password: '',
+         database: 'capstone-2',
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"762e5565-af73-46cc-a0ff-80d61d6f694c\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/app.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/app.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/back-end/route/route.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/back-end/route/route.js\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/capstone-2-app/routes/web.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/capstone-2-app/routes/web.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"C:\\xampp\\php\\php.exe\" />\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2h89m9wWQdZFR2kqi61pWkVkO4O\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;main&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Joseph Adiwiguna\\Documents\\GitHub\\capstone-2\\views\\capstone-2-app\\resources\\views\" />\r\n      <recent name=\"C:\\Users\\Joseph Adiwiguna\\Documents\\GitHub\\capstone-2\\views\\capstone-2-app\\resources\\views\\fakultas\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"762e5565-af73-46cc-a0ff-80d61d6f694c\" name=\"Changes\" comment=\"\" />\r\n      <created>1716964994985</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716964994985</updated>\r\n      <workItem from=\"1716964999100\" duration=\"50000\" />\r\n      <workItem from=\"1717086176162\" duration=\"776000\" />\r\n      <workItem from=\"1717087592198\" duration=\"642000\" />\r\n      <workItem from=\"1717144391203\" duration=\"54000\" />\r\n      <workItem from=\"1717144458769\" duration=\"31000\" />\r\n      <workItem from=\"1717144504103\" duration=\"4000\" />\r\n      <workItem from=\"1717147740429\" duration=\"597000\" />\r\n      <workItem from=\"1717342018628\" duration=\"63000\" />\r\n      <workItem from=\"1717347161038\" duration=\"782000\" />\r\n      <workItem from=\"1717381747094\" duration=\"3517000\" />\r\n      <workItem from=\"1717386186808\" duration=\"18000\" />\r\n      <workItem from=\"1717392612791\" duration=\"4110000\" />\r\n      <workItem from=\"1717411419654\" duration=\"463000\" />\r\n      <workItem from=\"1717411915198\" duration=\"220000\" />\r\n      <workItem from=\"1717412170549\" duration=\"15839000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f4ad1a341971f880c5c17f11ce6e38f6da09afb4)
++++ b/.idea/workspace.xml	(date 1718086523752)
+@@ -4,18 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="">
++    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="debug fakultas">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/app.js" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/back-end/route/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/route/route.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/back-end/config/db_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/db_config.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/back-end/config/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/knexfile.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/back-end/controller/fakultasController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controller/fakultasController.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/back-end/route/route-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/route/route-test.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/app/Http/Controllers/FakultasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/app/Http/Controllers/FakultasController.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/pengajuan/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/prodi/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/index.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/user/index.blade.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -49,20 +46,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "main",
++    "last_opened_file_path": "C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Joseph Adiwiguna\Documents\GitHub\capstone-2\views\capstone-2-app\resources\views" />
+@@ -99,10 +97,36 @@
+       <workItem from="1717411419654" duration="463000" />
+       <workItem from="1717411915198" duration="220000" />
+       <workItem from="1717412170549" duration="15839000" />
++      <workItem from="1718025708347" duration="789000" />
++      <workItem from="1718028576716" duration="3078000" />
++      <workItem from="1718075476042" duration="6901000" />
++    </task>
++    <task id="LOCAL-00001" summary="test push error">
++      <option name="closed" value="true" />
++      <created>1718025814121</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1718025814121</updated>
++    </task>
++    <task id="LOCAL-00002" summary="debug fakultas">
++      <option name="closed" value="true" />
++      <created>1718030439759</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1718030439759</updated>
+     </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="controller Fakultas Laravel" />
++    <MESSAGE value="test push error" />
++    <MESSAGE value="debug fakultas" />
++    <option name="LAST_COMMIT_MESSAGE" value="debug fakultas" />
++  </component>
+ </project>
+\ No newline at end of file

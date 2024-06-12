@@ -39,7 +39,7 @@ const store = (req, res) => {
 }
 
 const edit = (req, res) => {
-    const id = req.params.id
+    const id = req.params.id;
     new ProgramStudi().edit(id, (err, programStudi) => {
         if (err) {
             return res.status(500).json({
@@ -47,9 +47,16 @@ const edit = (req, res) => {
                 message: 'Internal server error',
             });
         }
-        res.status(200).json({success: true, data: programStudi})
-    })
+        if (!programStudi) {
+            return res.status(404).json({
+                success: false,
+                message: `No programStudi found with ID ${id}`,
+            });
+        }
+        res.status(200).json({ success: true, data: programStudi });
+    });
 }
+
 
 const update = (req, res) => {
     console.log('Received data for updating', req.body);

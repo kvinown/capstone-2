@@ -94,6 +94,7 @@ class ProgramStudiController extends Controller
             return view('error', ['message' => $e->getMessage()]);
         }
     }
+
     public function update(Request $request)
     {
         try {

@@ -5,6 +5,8 @@ const router = express.Router()
 const fakultasController = require('../controller/fakultasController')
 const programStudiController = require('../controller/programStudiController')
 
+router.post('/api/programStudi-update', programStudiController.update)
+
 router.get('/api/programStudi-edit/:id', programStudiController.edit)
 
 router.post('/api/programStudi-store', programStudiController.store)

@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Pengubahan Program Studi</h3>
 
-                <form method="POST" action="{{route('programStudi.update')}}">
+                <form method="POST" action="{{ route('programStudi.update') }}">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">

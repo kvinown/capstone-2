@@ -76,6 +76,7 @@ const update = (req, res) => {
     });
 };
 
+
 const destroy = (req, res) => {
     const id = req.params.id;
     console.log('ID for delete', id);

@@ -98,9 +98,10 @@ class ProgramStudiController extends Controller
     public function update(Request $request)
     {
         try {
-            $response = $this->client->request('POST', '/api/programStudi/update', [
+            $response = $this->client->request('POST', '/api/programStudi-update', [
                 'json' => $request->all()
             ]);
+
 
             $responseData = json_decode($response->getBody()->getContents(), true);
 
@@ -124,6 +125,7 @@ class ProgramStudiController extends Controller
             return redirect(route('programStudi.index'))->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+
     public function destroy($id)
     {
         try {

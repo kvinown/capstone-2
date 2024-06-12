@@ -1,84 +1,62 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\FakultasController;
-use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
+// Include Fakultas routes
+include __DIR__.'/fakultas.php';
+
+// Include Program Studi routes
+include __DIR__.'/programStudi.php';
+
+// Welcome route
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard route
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// Other routes...
+// Route untuk halaman detail periode beasiswa
+Route::get('/periode/{id}', function ($id) {
+    // Contoh implementasi: ambil data periode beasiswa berdasarkan ID dan tampilkan di view
+    return view('periodeBeasiswa.detail', ['id' => $id]);
+})->name('periode-detail');
 
-    // Fakultas
-    Route::get('/fakultas-index', [FakultasController::class, 'index'])->name('fakultas.index');
-    Route::get('/fakultas-create', [FakultasController::class, 'create'])->name('fakultas.create');
-    Route::post('/fakultas-store', [FakultasController::class, 'store'])->name('fakultas.store');
+// Route untuk halaman detail pengajuan
+Route::get('/pengajuan/{id}', function ($id) {
+    // Contoh implementasi: ambil data pengajuan beasiswa berdasarkan ID dan tampilkan di view
+    return view('pengajuan.detail', ['id' => $id]);
+})->name('pengajuan-detail');
 
-    // Program Studi
-    Route::get('/programStudi-index', [ProgramStudiController::class, 'index'])->name('programStudi.index');
-    Route::get('/programStudi-create', [ProgramStudiController::class, 'create'])->name('programStudi.create');
-    Route::post('/programStudi-store', [ProgramStudiController::class, 'store'])->name('programStudi.store');
-    Route::get('/programStudi-edit/{id}', [ProgramStudiController::class, 'edit'])->name('programStudi.edit');
-    Route::post('/programStudi-update', [ProgramStudiController::class, 'update'])->name('programStudi.update');
-    Route::delete('/programStudi-delete/{id}', [ProgramStudiController::class, 'destroy'])->name('programStudi.delete');
-});
+// Route untuk halaman detail jenis beasiswa
+Route::get('/jenis/{id}', function ($id) {
+    // Contoh implementasi: ambil data jenis beasiswa berdasarkan ID dan tampilkan di view
+    return view('jenisBeasiswa.detail', ['id' => $id]);
+})->name('jenisBeasiswa-detail');
 
-Route::get('/periode', function () {
-    return view('periodeBeasiswa.index');
-})->name('periode-index');
-Route::get('/createPeriode', function () {
-    return view('periodeBeasiswa.create');
-})->name('periode-create');
+// Route untuk halaman detail fakultas
+Route::get('/fakultas/{id}', function ($id) {
+    // Contoh implementasi: ambil data fakultas berdasarkan ID dan tampilkan di view
+    return view('fakultas.detail', ['id' => $id]);
+})->name('fakultas-detail');
 
-Route::get('/role', function () {
-    return view('role.index');
-})->name('role-index');
-Route::get('/createRole', function () {
-    return view('role.create');
-})->name('role-create');
+// Route untuk halaman detail user
+Route::get('/user/{id}', function ($id) {
+    // Contoh implementasi: ambil data user berdasarkan ID dan tampilkan di view
+    return view('user.detail', ['id' => $id]);
+})->name('user-detail');
 
-Route::get('/user', function () {
-    return view('user.index');
-})->name('user-index');
-Route::get('/createUser', function () {
-    return view('user.create');
-})->name('user-create');
+// Route untuk halaman detail role
+Route::get('/role/{id}', function ($id) {
+    // Contoh implementasi: ambil data role berdasarkan ID dan tampilkan di view
+    return view('role.detail', ['id' => $id]);
+})->name('role-detail');
 
-Route::get('/prodi', function () {
-    return view('prodi.index');
-})->name('prodi-index');
-Route::get('/createProdi', function () {
-    return view('prodi.create');
-})->name('prodi-create');
-
-Route::get('/pengajuan', function () {
-    return view('pengajuan.index');
-})->name('pengajuan-index');
-Route::get('/createPengajuan', function () {
-    return view('pengajuan.create');
-})->name('pengajuan-create');
-
-Route::get('/jenis', function () {
-    return view('jenisBeasiswa.index');
-})->name('jenisBeasiswa-index');
-Route::get('/createJenis', function () {
-    return view('jenisBeasiswa.create');
-})->name('jenisBeasiswa-create');
-
-Route::get('/fakultas', function () {
-    return view('fakultas.index');
-})->name('fakultas-index');
-Route::get('/createFakultas', function () {
-    return view('fakultas.create');
-})->name('fakultas-create');
-
-require __DIR__.'/auth.php';
+// Route untuk halaman detail prodi
+Route::get('/prodi/{id}', function ($id) {
+    // Contoh implementasi: ambil data prodi berdasarkan ID dan tampilkan di view
+    return view('prodi.detail', ['id' => $id]);
+})->name('prodi-detail');

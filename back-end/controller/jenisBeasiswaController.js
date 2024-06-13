@@ -1,9 +1,10 @@
 // Controller untuk menggunakan class Fakultas
 const ProgramStudi = require('../model/programStudi');
+const JenisBeasiswa = require('../model/jenisBeasiswa');
 
 const index = (req, res) => {
     // Buat instance Fakultas langsung tanpa menggunakan getInstance()
-    new ProgramStudi().all((err, result) => {
+    new JenisBeasiswa().all((err, jenisBeasiswa) => {
         if (err) {
             return res.status(500).json({
                 success: false,
@@ -12,7 +13,7 @@ const index = (req, res) => {
         }
         res.status(200).json({
             success: true,
-            data: result,
+            data: jenisBeasiswa,
         });
     });
 }
@@ -22,14 +23,13 @@ const create = (req, res) => {
 
 const store = (req, res) => {
     console.log('Recieved data from storing', req.body)
-    const programStudi ={
+    const jenisBeasiswa ={
         id: req.body.id,
         nama: req.body.nama,
-        fakultas_id: req.body.fakultas_id,
     }
-    console.log('Data for storing', programStudi)
+    console.log('Data for storing', jenisBeasiswa)
 
-    new ProgramStudi().save(programStudi, (err, result) => {
+    new JenisBeasiswa().save(jenisBeasiswa, (err, result) => {
         if (err) {
             console.error('Error while saving program studi:', err)
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message })
@@ -40,7 +40,7 @@ const store = (req, res) => {
 
 const edit = (req, res) => {
     const id = req.params.id;
-    new ProgramStudi().edit(id, (err, programStudi) => {
+    new JenisBeasiswa().edit(id, (err, jenisBeasiswa) => {
         if (err) {
             return res.status(500).json({
                 success: false,
@@ -50,24 +50,23 @@ const edit = (req, res) => {
         if (!programStudi) {
             return res.status(404).json({
                 success: false,
-                message: `No programStudi found with ID ${id}`,
+                message: `No Jenis Beasiswa found with ID ${id}`,
             });
         }
-        res.status(200).json({ success: true, data: programStudi });
+        res.status(200).json({ success: true, data: jenisBeasiswa });
     });
 }
 
 
 const update = (req, res) => {
     console.log('Received data for updating', req.body);
-    const programStudi = {
+    const jenisBeasiswa = {
         id: req.body.id,
         nama: req.body.nama,
-        fakultas_id: req.body.fakultas_id,
     };
-    console.log('Data for update', programStudi);
+    console.log('Data for update', jenisBeasiswa);
 
-    new ProgramStudi().update(programStudi, (err, result) => {
+    new ProgramStudi().update(jenisBeasiswa, (err, result) => {
         if (err) {
             console.error('Error while updating program studi:', err);
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
@@ -82,7 +81,7 @@ const destroy = (req, res) => {
     console.log('ID for delete', id);
     new ProgramStudi().delete(id, (err, result) => {
         if (err) {
-            console.error('Error while deleting program studi:', err);
+            console.error('Error while deleting jenis beasiswa:', err);
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
         }
         res.status(200).json({ success: true, message: 'Data berhasil dihapus', data: result });

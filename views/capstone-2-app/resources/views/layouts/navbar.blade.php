@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('programStudi.index')}}">Program Studi</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('jenisBeasiswa.index')}}">Jenis Beasiswa</a>
+                    </li>
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">

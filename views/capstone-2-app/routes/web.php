@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 // Include Fakultas routes
 include __DIR__.'/fakultas.php';
-
 // Include Program Studi routes
 include __DIR__.'/programStudi.php';
+// Include Jenis Beassiwa routes
+include __DIR__.'/jenisBeasiswa.php';
 
 // Welcome route
 Route::get('/', function () {

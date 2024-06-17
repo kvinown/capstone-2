@@ -1,10 +1,12 @@
 /**
  * @param { import("knex").Knex } knex
- * @returns { Promise<void> } 
+ * @returns { Promise<void> }
  */
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex('programStudi').del()
+  await knex('programStudi').del();
+
+  // Insert new entries
   await knex('programStudi').insert([
     {
       id: "1",

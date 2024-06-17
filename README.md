@@ -64,7 +64,7 @@ Web application for applying for internal scholarships with case studies at the 
     ```
 4. **Run database seeds**
     ```sh
-    npx knex seed:run --knexfile ./config/knexfile.js
+    npx knex seeds:run --knexfile ./config/knexfile.js
     ```
 5. **Start Server**
     ```sh

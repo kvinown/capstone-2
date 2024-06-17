@@ -7,7 +7,7 @@ exports.up = function(knex) {
         if (!exists) {
             return knex.schema.createTable('programStudi', function(table) {
                 table.string('id', 5).primary();
-                table.string('nama_program_Studi', 100).unique();
+                table.string('nama', 100).unique();
                 table.string('fakultas_id', 5);
                 table.foreign('fakultas_id').references('id').inTable('fakultas').onDelete('RESTRICT').onUpdate('CASCADE');
                 table.timestamp('created_at').defaultTo(knex.fn.now());

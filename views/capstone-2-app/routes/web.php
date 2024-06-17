@@ -9,11 +9,12 @@ include __DIR__.'/fakultas.php';
 include __DIR__.'/programStudi.php';
 // Include Jenis Beassiwa routes
 include __DIR__.'/jenisBeasiswa.php';
+// Require Authorization routes
 require __DIR__.'/auth.php';
 
 // Welcome route
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

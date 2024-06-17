@@ -8,11 +8,20 @@ include __DIR__.'/fakultas.php';
 include __DIR__.'/programStudi.php';
 // Include Jenis Beassiwa routes
 include __DIR__.'/jenisBeasiswa.php';
+require __DIR__.'/auth.php';
 
 // Welcome route
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/home', function () {
+    return view('home');
+})->name('home-index');
 
 // Dashboard route
 Route::get('/dashboard', function () {

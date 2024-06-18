@@ -13,7 +13,9 @@ exports.up = async function(knex) {
                 table.timestamp('email_verified_at').nullable();
                 table.string('password');
                 table.string('role_id', 5)
+                table.string('programStudi_id', 5)
                 table.foreign('role_id').references('id').inTable('role').onDelete('RESTRICT').onUpdate('CASCADE')
+                table.foreign('programStudi_id').references('id').inTable('programStudi').onDelete('RESTRICT').onUpdate('CASCADE')
                 table.string('remember_token', 100).nullable();
                 table.timestamps(true, true); // 'created_at' and 'updated_at' with current timestamp as default
             });

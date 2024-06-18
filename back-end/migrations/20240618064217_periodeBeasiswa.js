@@ -3,16 +3,17 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.hasTable('fakultas').then(function(exists) {
+    return knex.schema.hasTable('periodeBeasiswa').then(function(exists) {
         if (!exists) {
-            return knex.schema.createTable('fakultas', function(table) {
-                table.string('id', 5).primary()
-                table.string('nama', 100).unique()
+            return knex.schema.createTable('periodeBeasiswa', function (table) {
+                table.string('id', 15).primary()
+                table.string('nama')
+                table.boolean('status')
                 table.timestamp('created_at').defaultTo(knex.fn.now())
                 table.timestamp('updated_at').defaultTo(knex.fn.now())
             })
         }
-    });
+    })
 };
 
 /**
@@ -20,5 +21,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('fakultas');
+    return knex.schema.dropTableIfExists('periodeBeasiswa');
 };

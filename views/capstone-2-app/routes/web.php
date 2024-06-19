@@ -9,6 +9,8 @@ include __DIR__.'/fakultas.php';
 include __DIR__.'/programStudi.php';
 // Include Jenis Beassiwa routes
 include __DIR__.'/jenisBeasiswa.php';
+// Include Role routes
+include __DIR__.'/role.php';
 // Require Authorization routes
 require __DIR__.'/auth.php';
 

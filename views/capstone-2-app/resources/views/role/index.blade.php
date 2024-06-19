@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Tabel Role</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="{{route('role-create')}}">
+                    <a href="{{route('role.create')}}">
                         <button class="btn btn-primary">Tambah Role</button>
                     </a>
                 </div>
@@ -19,23 +19,24 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>12345</td>
-                        <td>Admin</td>
-                        <td>
-                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>67890</td>
-                        <td>User</td>
-                        <td>
-                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </td>
-                    </tr>
-                    </tbody>
+                    @if(!empty($roleData))
+                        @foreach($roleData as $role)
+                            <tr>
+                                <td>{{$role->id}}</td>
+                                <td>{{$role->nama}}</td>
+                                <td>
+                                    <a href="{{route('role.edit', $role->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
+                                </td>
+                                <td>
+                                    <form action="{{route('role.delete', $role->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                    @endforeach
+                    @endif
                 </table>
             </div>
         </div>

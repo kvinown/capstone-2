@@ -6,18 +6,18 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Role</h3>
 
-                <form method="post" action="{{route('role.store')}}">
+                <form method="post" action="{{route('role.update')}}">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
                             <label for="id" class="text-white mb-3">ID</label>
                             <input type="text" maxlength="5" class="form-control" id="id" placeholder="Masukan ID"
-                                   required name="id">
+                                   required name="id" readonly value="{{$roleData->id}}">
                         </div>
                         <div class="form-group m-2">
                             <label for="nama" class="text-white mb-3">Nama Role</label>
                             <input type="text" minlength="5" class="form-control" id="nama" placeholder="Masukan Role"
-                                   required name="nama">
+                                   required name="nama" value="{{$roleData->nama}}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-info text-white mt-2">Submit</button>

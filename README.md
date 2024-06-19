@@ -82,28 +82,31 @@ Web application for applying for internal scholarships with case studies at the 
     composer install
     ```
 
-3. **Setup environment variables**
+2. **Setup environment variables**
     ```sh
     cp .env.example .env
     ```
    Edit file `.env` dengan konfigurasi database dan lainnya.
 
-4. **Generate application key**
+3. **Generate application key**
     ```sh
     php artisan key:generate
     ```
 
-5. **Run database migrations**
-    ```sh
-    php artisan migrate
-    ```
+[//]: # (4. **Run database migrations**)
 
-6. **Start the development server**
+[//]: # (    ```sh)
+
+[//]: # (    php artisan migrate)
+
+[//]: # (    ```)
+
+5. **Start the development server**
     ```sh
     php artisan serve
     ```
 
-7. **Compile assets**
+6. **Compile assets**
     ```sh
     npm run dev
     ```

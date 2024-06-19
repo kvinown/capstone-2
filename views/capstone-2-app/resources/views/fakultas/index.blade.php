@@ -26,13 +26,21 @@
                                 <td>{{$fakultas->id}}</td>
                                 <td>{{$fakultas->nama}}</td>
                                 <td>
-                                    <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
+                                    <a href="{{route('fakultas.edit', $fakultas->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    <form action="{{route('fakultas.delete', $fakultas->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4" class="text-center">Tidak ada data program studi.</td>
+                        </tr>
                     @endif
                     </tbody>
                 </table>

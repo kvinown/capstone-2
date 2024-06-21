@@ -11,6 +11,8 @@ include __DIR__.'/programStudi.php';
 include __DIR__.'/jenisBeasiswa.php';
 // Include Role routes
 include __DIR__.'/role.php';
+// Include User routes
+include __DIR__.'/users.php';
 // Require Authorization routes
 require __DIR__.'/auth.php';
 
@@ -58,11 +60,11 @@ Route::get('/fakultas/{id}', function ($id) {
     return view('fakultas.detail', ['id' => $id]);
 })->name('fakultas-detail');
 
-// Route untuk halaman detail user
-Route::get('/user/{id}', function ($id) {
-    // Contoh implementasi: ambil data user berdasarkan ID dan tampilkan di view
-    return view('user.detail', ['id' => $id]);
-})->name('user-detail');
+// Route untuk halaman detail users
+Route::get('/users/{id}', function ($id) {
+    // Contoh implementasi: ambil data users berdasarkan ID dan tampilkan di view
+    return view('users.detail', ['id' => $id]);
+})->name('users-detail');
 
 // Route untuk halaman detail role
 Route::get('/role/{id}', function ($id) {

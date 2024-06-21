@@ -22,6 +22,13 @@ class Model {
 		});
 	}
 
+	find(id, callback) {
+		const query = `SELECT * FROM ${this.table} WHERE id = ?`;
+		this.db.query(query, [id], (err, results) => {
+			if (err) return callback(err, null);
+			callback(null, results[0]);
+		});
+	}
 	edit(id, callback) {
 		const query = `SELECT * FROM ${this.table} WHERE id = ?`;
 		this.db.query(query, [id], (err, results) => {
@@ -55,7 +62,26 @@ class Model {
 			callback(null, result.affectedRows);
 		});
 	}
+	belongsTo(foreignTable, foreignKey, localKey, id, callback) {
+		const query = `
+            SELECT ft.* FROM ${foreignTable} ft
+            JOIN ${this.table} lt 
+            ON lt.${foreignKey} = ft.${localKey}
+            WHERE lt.id = ?
+        `;
+		this.db.query(query, [id], (err, results) => {
+			if (err) return callback(err, null);
+			callback(null, results[0]);
+		});
+	}
 
+	hasMany(localTable, localKey, foreignKey, callback) {
+		const query = `SELECT * FROM ${localTable} WHERE ${foreignKey} = ?`;
+		this.db.query(query, [localKey], (err, results) => {
+			if (err) return callback(err, null);
+			callback(null, results);
+		});
+	}
 }
 
 module.exports = Model;

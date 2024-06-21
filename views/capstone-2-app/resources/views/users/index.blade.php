@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Tabel Pengguna</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="{{route('user-create')}}">
+                    <a href="{{route('users.create')}}">
                         <button class="btn btn-primary">Tambah Pengguna</button>
                     </a>
                 </div>
@@ -16,23 +16,24 @@
                         <th>ID</th>
                         <th>Nama</th>
                         <th>Email</th>
-                        <th>No. Telepon</th>
                         <th>Role</th>
-                        <th></th>
+                        <th>Program Studi</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>12345</td>
-                        <td>Joseph Adiwiguna</td>
-                        <td>joseph@mail.id</td>
-                        <td>081234567</td>
-                        <td>Admin</td>
-                        <td>
-                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </td>
-                    </tr>
+                    @if (!empty($usersData))
+                        @foreach ($usersData as $user)
+                            <tr>
+                                <td>{{$user->id}}</td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->role->nama}}</td>
+                                <td>{{$user->programStudi->nama}}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>

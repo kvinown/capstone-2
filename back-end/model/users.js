@@ -6,8 +6,14 @@ class Users extends Model {
         if (!Users.instance) {
             Users.instance = this;
         }
-        // Kembalikan instance yang sudah ada
         return Users.instance;
+    }
+
+    role(id, callback) {
+        this.belongsTo('role', 'role_id', 'id', id, callback);
+    }
+    programStudi(id, callback) {
+        this.belongsTo('programStudi', 'programStudi_id', 'id', id, callback);
     }
 }
 

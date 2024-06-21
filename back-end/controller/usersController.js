@@ -1,22 +1,55 @@
 const Users = require('../model/users')
-const {createProxyMiddleware} = require("http-proxy-middleware");
 
 const index = (req, res) => {
-    new Users().all((err, result) => {
+    new Users().all((err, users) => {
         if (err) {
             return res.status(500).json({
                 success: false,
                 message: 'Internal server error'
-            })
+            });
         }
-        res.status(200).json({
-            success: true,
-            data: result
-        })
-    })
-}
 
+        let usersData = [];
+        let processed = 0;
 
+        users.forEach(user => {
+            new Users().role(user.role_id, (err, role) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: false,
+                        message: 'Internal server error',
+                        error: err.message
+                    });
+                }
+
+                user.role = role;
+
+                new Users().programStudi(user.programStudi_id, (err, programStudi) => {
+                    if (err) {
+                        return res.status(500).json({
+                            success: false,
+                            message: 'Internal server error',
+                            error: err.message
+                        });
+                    }
+
+                    user.programStudi = programStudi;
+
+                    usersData.push(user);
+                    processed++;
+
+                    if (processed === users.length) {
+                        console.log(usersData)
+                        res.status(200).json({
+                            success: true,
+                            data: usersData
+                        });
+                    }
+                });
+            });
+        });
+    });
+};
 const create = (req, res) => {
     res.status(200).json({success: true, message: 'Create Page'})
 }
@@ -34,7 +67,7 @@ const store = (req, res) => {
 
     new User().save(user, (err,result) => {
         if (err) {
-            console.error('Error while saving user', err)
+            console.error('Error while saving users', err)
             return res.status(500).json({
                 success:false,
                 message: 'Internal Server Error',
@@ -80,7 +113,7 @@ const update = (req, res) => {
 
     new User().update(user, (err, result) => {
         if (err) {
-            console.error('Error while updating user', err)
+            console.error('Error while updating users', err)
             return res.status(500).json({
                 success: false,
                 message: 'Internal server error',
@@ -96,7 +129,7 @@ const destroy = (req, res) => {
     console.log('ID for delete', id)
     new User().delete(id, (err, result) => {
         if (err) {
-            console.error('Error while deleting user', err)
+            console.error('Error while deleting users', err)
             return res.status(500).json({success: false, message: 'Internal Server Error', error: err.message})
         }
         res.status(200).json({ success: true, message: 'Data berhasil dihapus', data: result });
@@ -111,3 +144,4 @@ module.exports = {
     update,
     destroy
 }
+

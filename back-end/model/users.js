@@ -2,7 +2,7 @@ const Model = require('./Model');
 
 class Users extends Model {
     constructor() {
-        super('sers');
+        super('users');
         if (!Users.instance) {
             Users.instance = this;
         }

@@ -56,6 +56,14 @@
                     <i class="fa fa-fw fa-user text-dark mr-3"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
                 </a>
+                <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">
+                            <i class="nav-icon fa fa-sign-out"></i> Logout
+                        </button>
+                    </form>
+                </a>
             </div>
         </div>
 

@@ -5,19 +5,20 @@
         <div class="container-fluid">
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Pengguna</h3>
-                <form method="post" action="{{route('users.store')}}">
+                <form method="post" action="{{route('users.update')}}">
                     @csrf
+                    <input type="hidden" name="id" value="{{$usersData->id}}">
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
                             <label for="name" class="text-white mb-3">Nama Pengguna</label>
                             <input type="text"  class="form-control mb-3" id="name" placeholder="Masukan Nama Pengguna"
-                                   required name="name">
+                                   required name="name" value="{{$usersData->name}}">
                         </div>
 
                         <div class="form-group m-2">
                             <label for="email" class="text-white mb-3">Email</label>
                             <input type="email" class="form-control mb-3" id="email" placeholder="Masukan Email"
-                                   required name="email">
+                                   required name="email" value="{{$usersData->email}}" readonly>
                         </div>
 
                         <div class="form-group m-2">
@@ -34,6 +35,7 @@
                         <div class="form-group m-2">
                             <label for="role_id" class="text-white mb-3">Role</label>
                             <select class="form-control mb-3" id="role_id" name="role_id"  required>
+                                <option value="{{$usersData->id}}">{{$usersData->role_id}}</option>
                                 @foreach($roleData as $role)
                                     <option value="{{$role->id}}">{{$role->id}} - {{$role->nama}}</option>
                                 @endforeach

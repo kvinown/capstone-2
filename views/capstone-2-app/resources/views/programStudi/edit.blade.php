@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group m-2">
                             <label for="fakultas_id" class="text-white mb-3">Fakultas</label>
-                            <select class="form-select" name="fakultas_id" id="fakultas_id">
+                            <select class="form-select mb-3" name="fakultas_id" id="fakultas_id">
                                 <option value="{{$programStudiData->fakultas_id}}"></option>
                                 @foreach($fakultasData as $fakultas)
                                     <option value="{{$fakultas->id}}">{{$fakultas->id}} - {{$fakultas->nama}}</option>

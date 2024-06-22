@@ -96,19 +96,42 @@ class UsersController extends Controller
     }
     public function update(Request $request)
     {
+        try {
             $response = $this->client->request('POST', '/api/users-update', [
                 'json' => $request->all()
             ]);
 
 
             $responseData = json_decode($response->getBody()->getContents(), true);
-        dd($request, $response, $responseData);
 
             if ($responseData['success']) {
                 return redirect(route('users.index'))->with('success', 'Data berhasil diubah');
             } else {
                 return redirect(route('users.index'))->with('error', 'Data gagal diubah');
             }
+        }catch (ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            $responseData = json_decode($responseBodyAsString, true);
 
+            // Contoh pemeriksaan pesan kesalahan spesifik
+            if (isset($responseData['error']) && strpos($responseData['error'], 'ER_DUP_ENTRY') !== false) {
+                return redirect(route('users.index'))->with('error', 'ID Program Studi sudah terdaftar, silahkan diganti dengan ID yang lain');
+            }
+
+            return redirect(route('users.index'))->with('error', 'Data gagal diubah');
+        } catch (\Exception $e) {
+            return redirect(route('users.index'))->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $response = $this->client->request('GEt', "/api/users-delete/{$id}");
+            return redirect(route('users.index'))->with('success', 'Data berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect(route('users.index'))->with('error', 'Data gagal dihapus');
+        }
     }
 }

@@ -132,6 +132,7 @@ const update = (req, res) => {
 
         // Ambil data dari request body
         const userData = {
+            id: req.body.id,
             name: req.body.name,
             email: req.body.email,
             password: hashedPassword,
@@ -140,7 +141,7 @@ const update = (req, res) => {
         };
 
 
-        console.log(userData)
+        console.log('Data users for update',userData)
 
         // Panggil method update dari model User untuk menyimpan data pengguna
         new Users().update(userData, (err, result) => {

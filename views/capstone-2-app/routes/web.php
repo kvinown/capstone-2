@@ -15,6 +15,8 @@ include __DIR__.'/role.php';
 include __DIR__.'/users.php';
 // Include periode routes
 include __DIR__.'/periodeBeasiswa.php';
+// Include Tanggal Periode Beasiswa routes
+include __DIR__.'/tanggalPeriodeBeasiswa.php';
 // Require Authorization routes
 require __DIR__.'/auth.php';
 

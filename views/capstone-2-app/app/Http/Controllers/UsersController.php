@@ -19,7 +19,7 @@ class UsersController extends Controller
         try {
             $response = $this->client->request('GET', '/api/users');
             $statusCode = $response->getStatusCode();
-            if ($statusCode = 200) {
+            if ($statusCode == 200) {
                 $users = json_decode($response->getBody()->getContents());
                 $usersData = $users->data;
                 return view('users.index', compact('usersData'));

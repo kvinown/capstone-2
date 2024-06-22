@@ -1,8 +1,6 @@
-// Controller untuk menggunakan class Fakultas
 const ProgramStudi = require('../model/programStudi');
 
 const index = (req, res) => {
-    // Buat instance Fakultas langsung tanpa menggunakan getInstance()
     new ProgramStudi().all((err, result) => {
         if (err) {
             return res.status(500).json({

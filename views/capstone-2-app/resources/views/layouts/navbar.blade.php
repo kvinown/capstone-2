@@ -37,6 +37,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('users.index')}}">Users</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('periode.index')}}">Periode Beasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a>
+                    </li>
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">

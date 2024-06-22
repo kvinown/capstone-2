@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kvinown/capstone-2#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "http-proxy-middleware": "^3.0.0",

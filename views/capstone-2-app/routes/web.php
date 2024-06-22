@@ -11,6 +11,8 @@ include __DIR__.'/programStudi.php';
 include __DIR__.'/jenisBeasiswa.php';
 // Include Role routes
 include __DIR__.'/role.php';
+// Include Role routes
+include __DIR__.'/periodeBeasiswa.php';
 // Require Authorization routes
 require __DIR__.'/auth.php';
 

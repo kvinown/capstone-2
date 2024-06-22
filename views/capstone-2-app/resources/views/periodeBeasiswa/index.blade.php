@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Tabel Fakultas</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="{{route('periode-create')}}">
+                    <a href="{{route('periode.create')}}">
                         <button class="btn btn-primary">Tambah Fakultas</button>
                     </a>
                 </div>
@@ -14,22 +14,36 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Periode</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Berakhir</th>
+                        <th>Nama</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>12345</td>
-                        <td>2023-20234</td>
-                        <td>05/06/2024</td>
-                        <td>06/06/2024</td>
-                        <td>
-                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </td>
+                    @if(!empty($periodeData))
+                        @foreach($periodeData as $periode)
+                            <tr>
+                                <td>{{$periode->id}}</td>
+                                <td>{{$periode->nama}}</td>
+                                <td>{{$periode->status}}</td>
+                                <td>
+                                    <a href="{{route('periode.edit', $periode->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
+                                </td>
+                                <td>
+                                    <form action="{{route('periode.delete', $periode->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4" class="text-center">Tidak ada data</td>
+                        </tr>
+                        @endif
                     </tr>
                     </tbody>
                 </table>

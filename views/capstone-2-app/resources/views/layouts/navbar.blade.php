@@ -1,4 +1,3 @@
-<!-- Header -->
 <nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
@@ -16,66 +15,40 @@
                     <li class="nav-item">
                         <a class="nav-link" href="">Daftar Sekarang</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Beasiswa</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{route('fakultas.index')}}">Fakultas</a></li>
+                            <li><a class="dropdown-item" href="{{route('programStudi.index')}}">Program Studi</a></li>
+                            <li><a class="dropdown-item" href="{{route('jenisBeasiswa.index')}}">Jenis Beasiswa</a></li>
+                            <li><a class="dropdown-item" href="{{route('users.index')}}">Users</a></li>
+                            <li><a class="dropdown-item" href="{{route('periode.index')}}">Periode Beasiswa</a></li>
+                            <li><a class="dropdown-item" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Pengguna</a>
+                        <a class="nav-link" href="">Periode</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('fakultas.index')}}">Fakultas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('programStudi.index')}}">Program Studi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('jenisBeasiswa.index')}}">Jenis Beasiswa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('users.index')}}">Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('periode.index')}}">Periode Beasiswa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a>
+                        <a class="nav-link" href="">Contact</a></li>
                     </li>
                 </ul>
             </div>
-            <div class="navbar align-self-center d-flex">
-                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                        <div class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
-                    <i class="fa fa-fw fa-search text-dark mr-2"></i>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
-                    <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
-                </a>
-                <a class="nav-icon position-relative text-decoration-none" href="#">
+
+            <!-- Profile Icon and Logout Menu -->
+            <div class="profile-container">
+                <img src="assets/img/profile.jpg" alt="Profile" class="profile-icon" id="profileIcon">
+                <div class="menu" id="menu">
                     <form id="logoutForm" method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="btn btn-danger">
-                            <i class="nav-icon fa fa-sign-out"></i> Logout
+                        <button type="button" class="menu-item" id="logoutButton">
+                            Logout
                         </button>
                     </form>
-                </a>
+                </div>
             </div>
         </div>
-
     </div>
 </nav>
-<!-- Close Header -->

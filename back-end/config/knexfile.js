@@ -6,14 +6,14 @@ module.exports = {
         connection: {
             host: 'localhost',
             user: 'root',
-            password: 'root',
+            password: '',
             database: 'capstone-2'
         },
         migrations: {
-            directory: path.join(__dirname, '../migration') // Menggunakan path.join untuk menghindari kesalahan path
+            directory: '/Users/jov/Documents/Kuliah/Pemrograman web lanjut/TUBES UAS/capstone-2/back-end/migrations'// Menggunakan path.join untuk menghindari kesalahan path
         },
         seeds: {
-            directory: path.join(__dirname, '../seed') // Menggunakan path.join untuk menghindari kesalahan path
+            directory: '/Users/jov/Documents/Kuliah/Pemrograman web lanjut/TUBES UAS/capstone-2/back-end/seeds' // Menggunakan path.join untuk menghindari kesalahan path
         }
     }
 };

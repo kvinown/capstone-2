@@ -47,7 +47,7 @@ const edit = (req, res) => {
                 message: 'Internal server error',
             });
         }
-        if (!programStudi) {
+        if (!jenisBeasiswa) {
             return res.status(404).json({
                 success: false,
                 message: `No Jenis Beasiswa found with ID ${id}`,
@@ -66,7 +66,7 @@ const update = (req, res) => {
     };
     console.log('Data for update', jenisBeasiswa);
 
-    new ProgramStudi().update(jenisBeasiswa, (err, result) => {
+    new JenisBeasiswa().update(jenisBeasiswa, (err, result) => {
         if (err) {
             console.error('Error while updating program studi:', err);
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
@@ -79,7 +79,7 @@ const update = (req, res) => {
 const destroy = (req, res) => {
     const id = req.params.id;
     console.log('ID for delete', id);
-    new ProgramStudi().delete(id, (err, result) => {
+    new JenisBeasiswa().delete(id, (err, result) => {
         if (err) {
             console.error('Error while deleting jenis beasiswa:', err);
             return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });

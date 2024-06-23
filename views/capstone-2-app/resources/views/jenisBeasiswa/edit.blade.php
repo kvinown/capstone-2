@@ -6,18 +6,18 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Jenis Beasiswa</h3>
 
-                <form method="post" action="{{route('jenisBeasiswa.store')}}">
+                <form method="post" action="{{route('jenisBeasiswa.update')}}">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
                             <label for=id" class="text-white mb-3">ID</label>
                             <input type="text" minlength="5" class="form-control" id="id" placeholder="Masukan ID"
-                                   required name="id">
+                                   required name="id" readonly value="{{$jenisBeasiswaData->id}}">
                         </div>
                         <div class="form-group m-2">
                             <label for="namaBeasiswa" class="text-white mb-3">Jenis Beasiswa</label>
                             <input type="text" minlength="5" class="form-control" id="namaBeasiswa" placeholder="Masukan Jenis Beasiswa"
-                                   required name="nama">
+                                   required name="nama" value="{{$jenisBeasiswaData->nama}}">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-info text-white mt-2">Submit</button>

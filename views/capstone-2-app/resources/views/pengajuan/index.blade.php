@@ -27,9 +27,9 @@
                     @if(!empty($pengajuanBeasiswaData))
                         @foreach($pengajuanBeasiswaData as $pengajuanBeasiswa)
                             <tr>
-                                <td>{{$pengajuanBeasiswa->users_id}}</td>
-                                <td>{{$pengajuanBeasiswa->periodeBeasiswa_id}}</td>
-                                <td>{{$pengajuanBeasiswa->jenisBeasiswa_id}}</td>
+                                <td>{{$pengajuanBeasiswa->users->name}}</td>
+                                <td>{{$pengajuanBeasiswa->periodeBeasiswa->nama}}</td>
+                                <td>{{$pengajuanBeasiswa->jenisBeasiswa->nama}}</td>
                                 <td>{{$pengajuanBeasiswa->ipk}}</td>
                                 <td>{{$pengajuanBeasiswa->point_portofolio}}</td>
                                 <td>{{$pengajuanBeasiswa->statusProdiApproved}}</td>

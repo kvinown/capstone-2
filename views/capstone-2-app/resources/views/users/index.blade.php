@@ -25,12 +25,13 @@
                     <tbody>
                     @if (!empty($usersData))
                         @foreach ($usersData as $user)
+
                             <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->role->nama}}</td>
-                                <td>{{$user->programStudi->nama}}</td>
+                                <td>{{ $user->role ? $user->role->nama : 'N/A' }}</td>
+                                <td>{{ $user->programStudi ? $user->programStudi->nama : 'N/A' }}</td>
                                 <td>
                                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>

@@ -75,7 +75,7 @@
                                 <td><a class="btn btn-primary" href="{{$BerkasBeasiswa->path}}" target="_blank">Lihat Dokumen</a>
                                     </td>
                                 <td>
-                                    <a href="" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="{{route('pengajuanBeasiswa.edit', $BerkasBeasiswa->users_id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
                                     <form action="" method="POST">

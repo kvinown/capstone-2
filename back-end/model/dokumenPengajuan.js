@@ -49,6 +49,31 @@ class DokumenPengajuan extends Model {
             callback
         );
     }
+    editBerkas(id, callback) {
+        const query = `SELECT * FROM ${this.table} WHERE users_id = ?`;
+        this.db.query(query, [id], (err, results) => {
+            if (err) return callback(err, null);
+            callback(null, results);
+        });
+    }
+
+    updateBerkas(data, callback) {
+        const users_id = data.users_id;
+        const jenisDokumen_id = data.jenisDokumen_id;
+        const query = `UPDATE ${this.table} SET path = ? WHERE users_id = ? AND jenisDokumen_id = ?`;
+        this.db.query(query, [data.path, users_id, jenisDokumen_id], (err, result) => {
+            if (err) return callback(err, null);
+            callback(null, result.affectedRows);
+        });
+    }
+    deleteBerkas(id, callback) {
+        const query = `DELETE FROM ${this.table} WHERE users_id = ?`;
+        this.db.query(query, [id], (err, result) => {
+            if (err) return callback(err, null);
+            callback(null, result.affectedRows);
+        });
+    }
+
 }
 
 module.exports = DokumenPengajuan;

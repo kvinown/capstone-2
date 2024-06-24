@@ -10,7 +10,7 @@
                         {{implode('',$errors->all(':message'))}}
                     </div>
                 @endif
-                <form method="post" action="{{route('pengajuanBeasiswa.store')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('pengajuanBeasiswa.store')}}">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
@@ -29,32 +29,16 @@
                                 @endforeach
                             </select>
                         </div>
-{{--                        <div class="form-group m-2">--}}
-{{--                            <label for="ipk" class="text-white mb-3">IPK Terakhir</label>--}}
-{{--                            <input type="text" minlength="5" class="form-control" id="ipk" placeholder="Masukan IPK Terakhir"--}}
-{{--                                   required name="ipk">--}}
-{{--                        </div>--}}
-
                         <div class="form-group m-2">
-                            <label for="dokumenPengajuan" class="text-white mb-3">Dokumen Pengajuan</label>
-                            <input type="file" class="form-control" id="dokumenPengajuan" placeholder="Upload Dokumen Pengajuan"
-                                   required name="dokumenPengajuan">
+                            <label for="ipk" class="text-white mb-3">IPK Terakhir</label>
+                            <input type="text" class="form-control" id="ipk" placeholder="Masukan IPK Terakhir"
+                                   required name="ipk">
                         </div>
                         <div class="form-group m-2">
-                            <label for="suratEkonomiLemah" class="text-white mb-3">Surat Eknomi Lemah </label>
-                            <input type="file" class="form-control" id="suratEkonomiLemah" placeholder="Upload Dokumen Pendukung"
-                                   name="suratEkonomiLemah">
+                            <label for="poin" class="text-white mb-3">Poin Portofolio</label>
+                            <input type="text" class="form-control" id="poin" placeholder="Masukan Poin Portofolios"
+                                   required name="point_portofolio">
                         </div>
-                        <div class="form-group m-2">
-                            <label for="aktivisOrganisasi" class="text-white mb-3">Surat Keterangan Aktivis Organisasi Masyarakat</label>
-                            <input type="file" class="form-control" id="aktivisOrganisasi" placeholder="Upload Dokumen Pendukung"
-                                   name="aktivisOrganisasi">
-                        </div>
-{{--                        <div class="form-group m-2">--}}
-{{--                            <label for="dokumenPendukung" class="text-white mb-3">Dokumen Pendukung</label>--}}
-{{--                            <input type="file" class="form-control" id="dokumenPendukung" placeholder="Upload Dokumen Pendukung"--}}
-{{--                                   name="dokumenPendukung[]" multiple="true">--}}
-{{--                        </div>--}}
                     </div>
                     <button type="submit" class="btn btn-info text-white mt-2">Submit</button>
                 </form>

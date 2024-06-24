@@ -4,33 +4,93 @@
     <div class="content m-5 bg-secondary bg-gradient p-3">
         <div class="container-fluid">
             <div class="card p-4">
-                <h3 class="text-center mb-3">Tabel Fakultas</h3>
+                <h3 class="text-center mb-3">Tabel Pengajuan</h3>
                 <div class="mb-3 mt-2 ms-2">
-                    <a href="{{route('pengajuan-create')}}">
-                        <button class="btn btn-primary">Tambah Fakultas</button>
+                    <a href="{{route('pengajuanBeasiswa.create')}}">
+                        <button class="btn btn-primary">Lakukan Pengajuan</button>
                     </a>
                 </div>
                 <table class="table table-striped border border-secondary">
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nama Mahasiswa</th>
-                        <th>Status</th>
+                        <th>Periode</th>
+                        <th>Jenis Beasiswa</th>
+                        <th>IPK</th>
+                        <th>Poin Portofolio</th>
+                        <th>Status Prodi</th>
+                        <th>Status Fakultas</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>12345</td>
-                        <td>Saipul</td>
-                        <td>Upload Berhasil.<br>
-                            Menunggu Persetujuan
-                        </td>
-                        <td>
-                            <button class="btn btn-warning"><i class="bi bi-pencil-square"></i></button>
-                            <button class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </td>
-                    </tr>
+                    @if(!empty($pengajuanBeasiswaData))
+                        @foreach($pengajuanBeasiswaData as $pengajuanBeasiswa)
+                            <tr>
+                                <td>{{$pengajuanBeasiswa->users_id}}</td>
+                                <td>{{$pengajuanBeasiswa->periodeBeasiswa_id}}</td>
+                                <td>{{$pengajuanBeasiswa->jenisBeasiswa_id}}</td>
+                                <td>{{$pengajuanBeasiswa->ipk}}</td>
+                                <td>{{$pengajuanBeasiswa->point_portofolio}}</td>
+                                <td>{{$pengajuanBeasiswa->statusProdiApproved}}</td>
+                                <td>{{$pengajuanBeasiswa->statusFakultasApproved}}</td>
+                                <td>
+                                    <a href="" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
+                                </td>
+                                <td>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="9" class="text-center">Tidak ada data.</td>
+                        </tr>
+                    @endif
+                    </tbody>
+                </table>
+                <h1 class="text-center mb-3">Berkas yang di kirimkan</h1>
+                <table class="table table-striped border border-secondary">
+                    <thead>
+                        <tr>
+                            <th>ID User</th>
+                            <th>ID Periode</th>
+                            <th>Jenis Beasiswa</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Dokumen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @if(!empty($BerkasBeasiswaData))
+                        @foreach($BerkasBeasiswaData as $BerkasBeasiswa)
+                            <tr>
+                                <td>{{$BerkasBeasiswa->users_id}}</td>
+                                <td>{{$BerkasBeasiswa->periodeBeasiswa_id}}</td>
+                                <td>{{$BerkasBeasiswa->jenisBeasiswa_id}}</td>
+                                <td>{{$BerkasBeasiswa->jenisDokumen_id}}</td>
+                                <td><a class="btn btn-primary" href="{{$BerkasBeasiswa->path}}" target="_blank">Lihat Dokumen</a>
+                                    </td>
+                                <td>
+                                    <a href="" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
+                                </td>
+                                <td>
+                                    <form action="" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="9" class="text-center">Tidak ada data.</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -39,16 +99,5 @@
 @endsection
 
 @section('spc-js')
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script>
-        const socket = io('http://127.0.0.1:3000');
 
-        socket.on('connect', () => {
-            console.log('Connected to server');
-        });
-
-        socket.on('socket-id', (id) => {
-            document.getElementById('socket-id-value').textContent = id;
-        });
-    </script>
 @endsection

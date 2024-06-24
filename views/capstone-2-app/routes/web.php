@@ -17,8 +17,10 @@ include __DIR__.'/users.php';
 include __DIR__.'/periodeBeasiswa.php';
 // Include Tanggal Periode Beasiswa routes
 include __DIR__.'/tanggalPeriodeBeasiswa.php';
-// Include Tanggal Periode Beasiswa routes
+// Include Pengajuan Beasiswa routes
 include __DIR__.'/pengajuanBeasiswa.php';
+// Include Pengajuan Berkas Beasiswa routes
+include __DIR__ . '/dokumenPengajuan.php';
 // Require Authorization routes
 require __DIR__.'/auth.php';
 
@@ -35,6 +37,8 @@ Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.
 Route::get('/home', function () {
     return view('home');
 })->name('home-index');
+
+
 
 // Dashboard route
 Route::get('/dashboard', function () {

@@ -13,13 +13,14 @@
             <div class="flex-fill">
                 <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="">Daftar Sekarang</a>
+                        <a class="nav-link" href="{{route('pengajuanBeasiswa.create')}}">Daftar Sekarang</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{route('dokumenBeasiswa.index')}}">Hasil Pengajuan</a></li>
                             <li><a class="dropdown-item" href="{{route('fakultas.index')}}">Fakultas</a></li>
                             <li><a class="dropdown-item" href="{{route('programStudi.index')}}">Program Studi</a></li>
                             <li><a class="dropdown-item" href="{{route('jenisBeasiswa.index')}}">Jenis Beasiswa</a></li>

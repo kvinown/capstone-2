@@ -9,7 +9,7 @@ const usersRouter = require('./route-users')
 const periodeRouter = require('./route-periode')
 const tanggalPeriodeRouter = require('./route-tanggalPeriodeBeasiswa')
 const pengajuanBeasiswaRouter = require('./route-pengajuanBeasiswa')
-const pengajuanBerkasBeasiswaRouter = require('./route-pengajuanBerkasBeasiswa')
+const dokumenBeasiswaRouter = require('./route-dokumenPengajuan')
 
 router.use(programStudiRouter);
 router.use(fakultasRouter);
@@ -19,6 +19,6 @@ router.use(usersRouter);
 router.use(periodeRouter);
 router.use(tanggalPeriodeRouter);
 router.use(pengajuanBeasiswaRouter);
-router.use(pengajuanBerkasBeasiswaRouter);
+router.use(dokumenBeasiswaRouter);
 
 module.exports = router;

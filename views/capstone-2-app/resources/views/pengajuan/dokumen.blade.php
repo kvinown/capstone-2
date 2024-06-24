@@ -10,15 +10,15 @@
                         {{implode('',$errors->all(':message'))}}
                     </div>
                 @endif
-                <form method="post" action="{{route('pengajuanBeasiswa.storeDocument')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('dokumenBeasiswa.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
                             <label for="user_id" class="text-white mb-3">ID</label>
-                            <input type="text" name="user_id" id="user_id" class="form-control" readonly value="{{ $data->users_id }}">
+                            <input type="text" name="user_id" id="user_id" class="form-control" readonly value="{{ $data['user_id'] }}">
                         </div>
-                        <input type="hidden" name="periodeBeasiswa_id" id="periodeBeasiswa_id" value="{{ $data->periodeBeasiswa_id }}">
-                        <input type="hidden" name="jenisBeasiswa_id" id="jenisBeasiswa_id" value="{{ $data->jenisBeasiswa_id }}">
+                        <input type="hidden" name="periodeBeasiswa_id" id="periodeBeasiswa_id" value="{{ $data['periodeBeasiswa_id'] }}">
+                        <input type="hidden" name="jenisBeasiswa_id" id="jenisBeasiswa_id" value="{{ $data['jenisBeasiswa_id'] }}">
                             <div class="form-group m-2">
                                 <label for="dokumenPengajuan" class="text-white mb-3">Dokumen Pengajuan</label>
                                 <input type="file" class="form-control" id="dokumenPengajuan" placeholder="Upload Dokumen Pengajuan"

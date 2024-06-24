@@ -9,6 +9,19 @@ class PengajuanBeasiswa extends Model {
         // Kembalikan instance yang sudah ada
         return PengajuanBeasiswa.instance;
     }
+
+
+    users(id, callback) {
+        this.belongsTo('users', 'users_id', 'id', id, callback);
+    }
+
+    jenisBeasiswa(id, callback) {
+        this.belongsTo('jenisBeasiswa', 'jenisBeasiswa_id', 'id', id, callback);
+    }
+
+    periodeBeasiswa(id, callback) {
+        this.belongsTo('periodeBeasiswa', 'periodeBeasiswa_id', 'id', id, callback);
+    }
 }
 
 module.exports = PengajuanBeasiswa;

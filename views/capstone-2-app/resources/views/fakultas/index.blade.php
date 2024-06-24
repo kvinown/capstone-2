@@ -29,10 +29,10 @@
                                     <a href="{{route('fakultas.edit', $fakultas->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{route('fakultas.delete', $fakultas->id)}}" method="POST">
+                                    <form action="{{route('fakultas.delete', $fakultas->id)}}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                        <button type="button" class="btn btn-danger delete-button"><i class="bi bi-trash-fill"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -48,3 +48,4 @@
         </div>
     </div>
 @endsection
+

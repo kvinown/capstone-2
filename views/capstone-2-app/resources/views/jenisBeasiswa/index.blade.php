@@ -29,10 +29,10 @@
                                     <a href="{{route('jenisBeasiswa.edit', $jenisBeasiswa->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{route('jenisBeasiswa.delete', $jenisBeasiswa->id)}}" method="POST">
+                                    <form action="{{route('jenisBeasiswa.delete', $jenisBeasiswa->id)}}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                        <button type="button" class="btn btn-danger delete-button"><i class="bi bi-trash-fill"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -49,17 +49,3 @@
     </div>
 @endsection
 
-@section('spc-js')
-    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script>
-        const socket = io('http://127.0.0.1:3000');
-
-        socket.on('connect', () => {
-            console.log('Connected to server');
-        });
-
-        socket.on('socket-id', (id) => {
-            document.getElementById('socket-id-value').textContent = id;
-        });
-    </script>
-@endsection

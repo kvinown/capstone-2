@@ -52,3 +52,7 @@
         </div>
     </div>
 </nav>
+
+@section('spc-css')
+
+@endsection

@@ -3,7 +3,7 @@
 use App\Http\Controllers\JenisBeasiswaController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth','admin')->group(function () {
     Route::get('/jenisBeasiswa-index', [JenisBeasiswaController::class, 'index'])->name('jenisBeasiswa.index');
     Route::get('/jenisBeasiswa-create', [JenisBeasiswaController::class, 'create'])->name('jenisBeasiswa.create');
     Route::post('/jenisBeasiswa-store', [JenisBeasiswaController::class, 'store'])->name('jenisBeasiswa.store');

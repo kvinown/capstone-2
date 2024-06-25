@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('web-content')
+    @if(auth()->user()->role_id == "4")
     <div class="content m-5 bg-secondary bg-gradient p-3">
         <div class="container-fluid">
             <div class="card p-4">
-                <h3 class="text-center mb-3">Penambahan Jurusan</h3>
+                <h3 class="text-center mb-3">Pengajuan Beasiswa</h3>
                 @if($errors->any())
                     <div class="alert alert-danger">
                         {{ implode('', $errors->all(':message')) }}
@@ -43,6 +44,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 
 @section('spc-js')

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('web-content')
+    @if(auth()->user()->role_id == "3")
     <div class="content m-5 bg-secondary bg-gradient p-3">
         <div class="container-fluid">
             <div class="card p-4">
@@ -48,6 +49,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 
 @section('spc-js')

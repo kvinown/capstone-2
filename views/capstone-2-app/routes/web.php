@@ -28,6 +28,10 @@ require __DIR__.'/auth.php';
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/unauthorized', function () {
+    return view('unauthorized'); // Ensure you have an unauthorized.blade.php view file
+})->name('unauthorized');
+
 //Logout route
 Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
@@ -51,6 +55,7 @@ Route::get('/contact', function () {
 
 
 // Other routes...
+/*
 // Route untuk halaman detail periode beasiswa
 Route::get('/periode/{id}', function ($id) {
     // Contoh implementasi: ambil data periode beasiswa berdasarkan ID dan tampilkan di view
@@ -92,3 +97,4 @@ Route::get('/prodi/{id}', function ($id) {
     // Contoh implementasi: ambil data prodi berdasarkan ID dan tampilkan di view
     return view('prodi.detail', ['id' => $id]);
 })->name('prodi-detail');
+*/

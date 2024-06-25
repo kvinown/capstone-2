@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow" xmlns="http://www.w3.org/1999/html">
+<nav class="navbar navbar-expand-lg navbar-light shadow">
     <div class="container d-flex justify-content-between align-items-center">
 
         <a class="navbar-brand text-success logo h1 align-self-center" href="{{ route('home-index') }}">
@@ -28,18 +28,11 @@
                             <li><a class="dropdown-item" href="{{route('role.index')}}">Role</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Periode
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{route('periode.index')}}">Periode Beasiswa</a></li>
-                            <li><a class="dropdown-item" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
-                    </li>
+                        @if(auth()->user()->role_id == '1')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('periode.index')}}">Periode</a>
+                            </li>
+                        @endif
                 </ul>
             </div>
 

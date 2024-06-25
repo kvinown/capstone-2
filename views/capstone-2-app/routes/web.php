@@ -38,8 +38,6 @@ Route::get('/home', function () {
     return view('home');
 })->name('home-index');
 
-
-
 // Dashboard route
 Route::get('/dashboard', function () {
     return view('home');
@@ -87,3 +85,5 @@ Route::get('/prodi/{id}', function ($id) {
     // Contoh implementasi: ambil data prodi berdasarkan ID dan tampilkan di view
     return view('prodi.detail', ['id' => $id]);
 })->name('prodi-detail');
+
+

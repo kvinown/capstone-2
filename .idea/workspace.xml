@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="sweetalert">
+    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="success button">
+      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/controller/tanggalPeriodeBeasiswaController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controller/tanggalPeriodeBeasiswaController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/public/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/public/assets/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/programStudi/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/programStudi/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +100,7 @@
       <workItem from="1717412170549" duration="15839000" />
       <workItem from="1718943874800" duration="156000" />
       <workItem from="1719195754788" duration="8286000" />
-      <workItem from="1719284674025" duration="3072000" />
+      <workItem from="1719284674025" duration="5238000" />
     </task>
     <task id="LOCAL-00001" summary="new navbar">
       <option name="closed" value="true" />
@@ -125,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719248022282</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="success button">
+      <option name="closed" value="true" />
+      <created>1719290181423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719290181423</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +135,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new navbar" />
     <MESSAGE value="sweetalert" />
-    <option name="LAST_COMMIT_MESSAGE" value="sweetalert" />
+    <MESSAGE value="success button" />
+    <option name="LAST_COMMIT_MESSAGE" value="success button" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php</url>
+          <line>37</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

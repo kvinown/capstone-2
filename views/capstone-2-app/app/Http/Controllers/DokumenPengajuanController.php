@@ -128,7 +128,7 @@ class DokumenPengajuanController extends Controller
             'user_id'=>'required|string',
             'periodeBeasiswa_id'=>'required|string',
             'jenisBeasiswa_id'=>'required|string',
-            'dokumenPengajuan' => 'required|mimes:pdf',
+            'dokumenPengajuan' => 'mimes:pdf',
             'suratEkonomiLemah' => 'mimes:pdf',
             'aktivisOrganisasi' => 'mimes:pdf'
         ]);
@@ -212,4 +212,5 @@ class DokumenPengajuanController extends Controller
             return redirect(route('dokumenPengajuan.index'))->with('error', 'Data gagal dihapus');
         }
     }
+
 }

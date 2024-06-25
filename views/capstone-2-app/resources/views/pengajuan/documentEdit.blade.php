@@ -22,7 +22,7 @@
                             <div class="form-group m-23">
                                 <label for="dokumenPengajuan" class="text-white mb-3">Dokumen Pengajuan</label>
                                 <input type="file" class="form-control" id="dokumenPengajuan" placeholder="{{$berkasData->dokumenPengajuan}}"
-                                       required name="dokumenPengajuan" value="{{$berkasData->dokumenPengajuan}}">
+                                       name="dokumenPengajuan" value="{{$berkasData->dokumenPengajuan}}">
                                 @if (!empty($berkasData->dokumenPengajuan))
                                     <div class="mt-2 text-white">
                                         File saat ini: <a href="{{ $berkasData->dokumenPengajuan }}" target="_blank" class="text-white text-decoration-none mb-3">{{ basename($berkasData->dokumenPengajuan) }}</a>

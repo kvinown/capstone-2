@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/public/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/capstone-2-app/public/assets/js/script.js" afterDir="false" />
+    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="new navbar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/config/db_config.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/db_config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/config/knexfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/config/knexfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/layouts/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +92,22 @@
       <workItem from="1717412170549" duration="15839000" />
       <workItem from="1718943874800" duration="156000" />
     </task>
+    <task id="LOCAL-00001" summary="new navbar">
+      <option name="closed" value="true" />
+      <created>1719161063807</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1719161063807</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="new navbar" />
   </component>
 </project>

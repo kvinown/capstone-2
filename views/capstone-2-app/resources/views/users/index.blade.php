@@ -36,10 +36,10 @@
                                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-warning" role="button"><i class="bi bi-pencil-square"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{route('users.delete', $user->id)}}" method="POST">
+                                    <form action="{{route('users.delete', $user->id)}}" method="POST" class="delete-form">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                        <button type="button" class="btn btn-danger delete-button"><i class="bi bi-trash-fill"></i></button>
                                     </form>
                                 </td>
                             </tr>

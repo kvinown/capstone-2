@@ -6,7 +6,7 @@
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Program Studi</h3>
 
-                <form method="POST" action="{{route('programStudi.store')}}">
+                <form method="POST" action="{{route('programStudi.store')}}" id="addForm">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
@@ -28,7 +28,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-info text-white mt-2">Submit</button>
+                    <button type="submit" id="addSubmit" class="btn btn-info text-white mt-2">Submit</button>
                 </form>
             </div>
         </div>

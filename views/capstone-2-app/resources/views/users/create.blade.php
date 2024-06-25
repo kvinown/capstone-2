@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="card p-4">
                 <h3 class="text-center mb-3">Penambahan Pengguna</h3>
-                <form method="post" action="{{route('users.store')}}">
+                <form method="post" action="{{route('users.store')}}" id="addForm">
                     @csrf
                     <div class="card-body bg-secondary rounded-3">
                         <div class="form-group m-2">
@@ -48,7 +48,7 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-info text-white mt-2">Submit</button>
+                    <button type="submit" id="addSubmit" class="btn btn-info text-white mt-2">Submit</button>
                 </form>
             </div>
         </div>

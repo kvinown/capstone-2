@@ -8,4 +8,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengajuanBeasiswa-create', [PengajuanBeasiswaController::class, 'create'])->name('pengajuanBeasiswa.create');
     Route::post('/pengajuanBeasiswa-store', [PengajuanBeasiswaController::class, 'store'])->name('pengajuanBeasiswa.store');
     Route::get('/pengajuanBeasiswa-detail/{users_id}/{jenisBeasiswa_id}/{periodeBeasiswa_id}/{ipk}/{point_portofolio}', [PengajuanBeasiswaController::class, 'detail'])->name('pengajuanBeasiswa.detail');
+    Route::get('/pengajuanBeasiswa-approveProdi/{id}', [PengajuanBeasiswaController::class, 'approveProdi'])->name('pengajuanBeasiswa.approveProdi');
+    Route::get('/pengajuanBeasiswa-approveFakultas/{id}', [PengajuanBeasiswaController::class, 'approveFakultas'])->name('pengajuanBeasiswa.approveProdi');
+    Route::post('/pengajuanBeasiswa-update', [PengajuanBeasiswaController::class, 'update'])->name('pengajuanBeasiswa.update');
 });

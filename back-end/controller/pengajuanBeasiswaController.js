@@ -1,4 +1,5 @@
 const PengajuanBeasiswa = require('../model/pengajuanBeasiswa');
+const Fakultas = require("../model/fakultas");
 
 const index = (req, res) => {
     const pengajuanBeasiswa = new PengajuanBeasiswa();
@@ -130,8 +131,51 @@ const details = (req, res) => {
     });
 };
 
+const edit = (req, res) => {
+    const id = req.params.id;
+    new PengajuanBeasiswa().editPengajuan(id, (err, pengajuanBeasiswa) => {
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: 'Internal server error',
+            });
+        }
+        if (!pengajuanBeasiswa) {
+            return res.status(404).json({
+                success: false,
+                message: `No Data found with ID ${id}`,
+            });
+        }
+        res.status(200).json({ success: true, data: pengajuanBeasiswa });
+    });
+}
+
+const update = (req, res) => {
+    console.log('Received data for updating', req.body);
+    const dataPengajuanBeasiswa = {
+        users_id: req.body.users_id,
+        periodeBeasiswa_id: req.body.periodeBeasiswa_id,
+        jenisBeasiswa_id: req.body.jenisBeasiswa_id,
+        ipk: req.body.ipk,
+        point_portofolio: req.body.point_portofolio,
+        statusProdiApproved: req.body.statusProdiApproved,
+        statusFakultasApproved: req.body.statusFakultasApproved,
+    };
+    console.log('Data for update', dataPengajuanBeasiswa);
+
+    new PengajuanBeasiswa().updateBeasiswa(dataPengajuanBeasiswa, (err, result) => {
+        if (err) {
+            console.error('Error while updating beasiswa:', err);
+            return res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
+        }
+        res.status(201).json({ success: true, message: 'Data berhasil diubah', data: result });
+    });
+};
+
 module.exports = {
     index,
     store,
-    details
+    details,
+    edit,
+    update
 };

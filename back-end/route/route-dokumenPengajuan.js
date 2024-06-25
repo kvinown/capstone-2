@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const dokumenPengajuanController = require('../controller/dokumenPengajuanController');
 
-router.get('/api/dokumenPengajuan-detail/:users_id/:jenisBeasiswa_id/:periodeBeasiswa_id/:ipk/:point_portofolio', dokumenPengajuanController.detail)
+router.get('/api/dokumenPengajuan-detail/:users_id/:jenisBeasiswa_id/:periodeBeasiswa_id/:ipk/:point_portofolio/:statusProdiApproved/:statusFakultasApproved', dokumenPengajuanController.detail)
 router.get('/api/dokumenPengajuan-delete/:id', dokumenPengajuanController.destroy)
 router.post('/api/dokumenPengajuan-update', dokumenPengajuanController.update)
 router.get('/api/dokumenPengajuan-edit/:id', dokumenPengajuanController.edit)

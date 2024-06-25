@@ -172,10 +172,83 @@ const update = (req, res) => {
     });
 };
 
+
+const approveProdi = (req, res) => {
+    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id } = req.params;
+
+    const data = {
+        users_id: users_id,
+        jenisBeasiswa_id: jenisBeasiswa_id,
+        periodeBeasiswa_id: periodeBeasiswa_id,
+    };
+
+    console.log('Request Data:', data);
+
+    new PengajuanBeasiswa().approveProdi(users_id, jenisBeasiswa_id, periodeBeasiswa_id, (err, result) => {
+        if (err) {
+            console.error('Error approving Prodi:', err);
+            return res.status(500).json({
+                success: false,
+                message: 'Internal server error',
+            });
+        }
+
+        if (result === 0) {
+            // No rows affected, meaning the combination of user_id, jenisBeasiswa_id, and periodeBeasiswa_id was not found
+            return res.status(404).json({
+                success: false,
+                message: 'No matching record found to approve',
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    });
+};
+const approveFakultas = (req, res) => {
+    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id } = req.params;
+
+    const data = {
+        users_id: users_id,
+        jenisBeasiswa_id: jenisBeasiswa_id,
+        periodeBeasiswa_id: periodeBeasiswa_id,
+    };
+
+    console.log('Request Data:', data);
+
+    new PengajuanBeasiswa().approveFakultas(users_id, jenisBeasiswa_id, periodeBeasiswa_id, (err, result) => {
+        if (err) {
+            console.error('Error approving Prodi:', err);
+            return res.status(500).json({
+                success: false,
+                message: 'Internal server error',
+            });
+        }
+
+        if (result === 0) {
+            // No rows affected, meaning the combination of user_id, jenisBeasiswa_id, and periodeBeasiswa_id was not found
+            return res.status(404).json({
+                success: false,
+                message: 'No matching record found to approve',
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            data: result,
+        });
+    });
+};
+
+
 module.exports = {
     index,
     store,
     details,
     edit,
-    update
+    update,
+    approveProdi,
+    approveFakultas
 };

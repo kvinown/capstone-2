@@ -27,6 +27,7 @@
                             <li><a class="dropdown-item" href="{{route('users.index')}}">Users</a></li>
                             <li><a class="dropdown-item" href="{{route('periode.index')}}">Periode Beasiswa</a></li>
                             <li><a class="dropdown-item" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a></li>
+                            <li><a class="dropdown-item" href="{{route('role.index')}}">Role</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

@@ -55,6 +55,29 @@ class PengajuanBeasiswa extends Model {
             callback(null, result.affectedRows);
         });
     }
+
+    approveProdi(users_id, jenisBeasiswa_id, periodeBeasiswa_id, callback) {
+        const query = `
+            UPDATE pengajuanBeasiswa
+            SET statusProdiApproved = 1
+            WHERE (users_id = ?) AND (jenisBeasiswa_id = ?) AND (periodeBeasiswa_id = ?)
+        `
+        this.db.query(query, [users_id, jenisBeasiswa_id, periodeBeasiswa_id], (err, result) => {
+            if (err) return callback(err, null);
+            callback(null, result.affectedRows);
+        })
+    }
+    approveFakultas(users_id, jenisBeasiswa_id, periodeBeasiswa_id, callback) {
+        const query = `
+            UPDATE pengajuanBeasiswa
+            SET statusFakultasApproved = 1
+            WHERE (users_id = ?) AND (jenisBeasiswa_id = ?) AND (periodeBeasiswa_id = ?)
+        `
+        this.db.query(query, [users_id, jenisBeasiswa_id, periodeBeasiswa_id], (err, result) => {
+            if (err) return callback(err, null);
+            callback(null, result.affectedRows);
+        })
+    }
 }
 
 module.exports = PengajuanBeasiswa;

@@ -123,14 +123,16 @@ const destroy = (req, res) => {
 }
 
 const detail = (req, res) => {
-    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id, ipk, point_portofolio } = req.params;
+    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id, ipk, point_portofolio, statusProdiApproved, statusFakultasApproved } = req.params;
 
     const detailData = {
         users_id: users_id,
         jenisBeasiswa_id: jenisBeasiswa_id,
         periodeBeasiswa_id: periodeBeasiswa_id,
         ipk: ipk,
-        point_portofolio: point_portofolio
+        point_portofolio: point_portofolio,
+        statusProdiApproved: statusProdiApproved,
+        statusFakultasApproved: statusFakultasApproved
     };
 
     console.log(detailData);

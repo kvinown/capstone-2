@@ -26,12 +26,11 @@ class PengajuanBeasiswaController extends Controller
         }
     }
 
-    public function detail($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id, $ipk, $point_portofolio)
+    public function detail($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id, $ipk, $point_portofolio, $statusProdiApproved, $statusFakultasApproved)
     {
-        $respone = $this->client->request('GET', "/api/dokumenPengajuan-detail/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id/$ipk/$point_portofolio");
+        $respone = $this->client->request('GET', "/api/dokumenPengajuan-detail/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id/$ipk/$point_portofolio/$statusProdiApproved/$statusFakultasApproved");
         $responeData = json_decode($respone->getBody()->getContents());
         $data  = $responeData->data;
-
         return view('pengajuan.index-detail', compact('data'));
     }
 
@@ -75,45 +74,17 @@ class PengajuanBeasiswaController extends Controller
         }
     }
 
-    public function approveProdi($id)
+    public function approveProdi($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id)
     {
-        try {
-            $responseBeasiswa = $this->client->request('GET', "/api/pengajuanBeasiswa-edit/{$id}");
-            $beasiswa= json_decode($responseBeasiswa ->getBody()->getContents());
-            $beasiswaData = $beasiswa->data;
-//            dd($beasiswaData->statusProdiApproved);
-            return view('pengajuan.approveProdi', compact('beasiswaData'));
-        } catch (ClientException $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            $responseData = json_decode($responseBodyAsString, true);
-            // Handle client exception here
-            return view('error', ['message' => $responseData['error']]);
-        } catch (\Exception $e) {
-            // Handle other exceptions here
-            return view('error', ['message' => $e->getMessage()]);
-        }
+            $responseBeasiswa = $this->client->request('GET', "/api/pengajuanBeasiswa-approveProdi/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id");
+            return redirect(route('dokumenBeasiswa.index'));
+    }
+    public function approveFakultas($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id)
+    {
+            $responseBeasiswa = $this->client->request('GET', "/api/pengajuanBeasiswa-approveFakultas/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id");
+            return redirect(route('dokumenBeasiswa.index'));
     }
 
-    public function approveFakultas($id)
-    {
-        try {
-            $responseBeasiswa = $this->client->request('GET', "/api/pengajuanBeasiswa-edit/{$id}");
-            $beasiswa= json_decode($responseBeasiswa ->getBody()->getContents());
-            $beasiswaData = $beasiswa->data;
-//            dd($beasiswaData->statusProdiApproved);
-            return view('pengajuan.approveFakultas', compact('beasiswaData'));
-        } catch (ClientException $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            $responseData = json_decode($responseBodyAsString, true);
-            // Handle client exception here
-            return view('error', ['message' => $responseData['error']]);
-        } catch (\Exception $e) {
-            // Handle other exceptions here
-            return view('error', ['message' => $e->getMessage()]);
-        }
-    }
 
     public function update(Request $request)
     {

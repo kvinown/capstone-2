@@ -35,7 +35,7 @@
                                 <td>{{$pengajuanBeasiswa->statusProdiApproved}}</td>
                                 <td>{{$pengajuanBeasiswa->statusFakultasApproved}}</td>
                                 <td>
-                                    <a href="{{ route('pengajuanBeasiswa.detail', ['users_id' => $pengajuanBeasiswa->users_id, 'jenisBeasiswa_id' => $pengajuanBeasiswa->jenisBeasiswa_id, 'periodeBeasiswa_id' => $pengajuanBeasiswa->periodeBeasiswa_id, 'ipk' => $pengajuanBeasiswa->ipk, 'point_portofolio' => $pengajuanBeasiswa->point_portofolio ]) }}">
+                                    <a href="{{ route('pengajuanBeasiswa.detail', ['users_id' => $pengajuanBeasiswa->users_id, 'jenisBeasiswa_id' => $pengajuanBeasiswa->jenisBeasiswa_id, 'periodeBeasiswa_id' => $pengajuanBeasiswa->periodeBeasiswa_id, 'ipk' => $pengajuanBeasiswa->ipk, 'point_portofolio' => $pengajuanBeasiswa->point_portofolio, 'statusProdiApproved' => $pengajuanBeasiswa->statusProdiApproved, 'statusFakultasApproved' => $pengajuanBeasiswa->statusFakultasApproved ]) }}">
                                         Detail
                                     </a>
                                 </td>

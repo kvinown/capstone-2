@@ -16,6 +16,8 @@
                             <th>Periode</th>
                             <th>IPK</th>
                             <th>Poin Portofolio</th>
+                            <th>Status Appoval Prodi</th>
+                            <th>Status Appoval Fakultas</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -26,6 +28,8 @@
                                 <td>{{$data->periodeBeasiswa->nama}}</td>
                                 <td>{{$data->ipk}}</td>
                                 <td>{{$data->point_portofolio}}</td>
+                                <td>{{$data->statusProdiApproved}}</td>
+                                <td>{{$data->statusFakultasApproved}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -43,11 +47,12 @@
                         @endif
                     </div>
                     <div class="col fw-bold">
-                        @if(auth()->user()->role_id == '1')
-                            <a href="" class="btn btn-primary">Approve</a>
-                        @elseif(auth()->user()->role_id == '2')
-                            <a href="" class="btn btn-primary">Approve</a>
+                        @if(auth()->user()->role_id == '3' and $data->statusProdiApproved == '0')
+                            <a href="{{route('pengajuanBeasiswa.approveProdi',['users_id' => $data->users_id, 'jenisBeasiswa_id' => $data->jenisBeasiswa_id, 'periodeBeasiswa_id' => $data->periodeBeasiswa_id])}}" class="btn btn-primary">Approve Prodi</a>
+                        @elseif(auth()->user()->role_id == '2' and $data->statusProdiApproved == '1' and $data->statusFakultasApproved == '0')
+                            <a href="{{route('pengajuanBeasiswa.approveFakultas',['users_id' => $data->users_id, 'jenisBeasiswa_id' => $data->jenisBeasiswa_id, 'periodeBeasiswa_id' => $data->periodeBeasiswa_id])}}" class="btn btn-primary">Approve Fakultas</a>
                         @endif
+
                     </div>
                 </div>
             </div>

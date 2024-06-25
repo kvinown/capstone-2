@@ -123,75 +123,95 @@ const destroy = (req, res) => {
 }
 
 const detail = (req, res) => {
-    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id } = req.params;
-
-    // Log data for debugging
+    const { users_id, jenisBeasiswa_id, periodeBeasiswa_id, ipk, point_portofolio } = req.params;
 
     const detailData = {
         users_id: users_id,
         jenisBeasiswa_id: jenisBeasiswa_id,
-        periodeBeasiswa_id: periodeBeasiswa_id
-    }
-    console.log(detailData)
-    new DokumenPengajuan().users(
-        detailData.users_id,
-        (err, users) => {
+        periodeBeasiswa_id: periodeBeasiswa_id,
+        ipk: ipk,
+        point_portofolio: point_portofolio
+    };
+
+    console.log(detailData);
+
+    new DokumenPengajuan().users(detailData.users_id, (err, users) => {
+        if (err) {
+            return res.status(500).json({
+                success: false,
+                message: 'Internal server error',
+            });
+        }
+        detailData.users = users;
+
+        new DokumenPengajuan().jenisBeasiswa(detailData.jenisBeasiswa_id, (err, jenisBeasiswa) => {
             if (err) {
                 return res.status(500).json({
                     success: false,
                     message: 'Internal server error',
                 });
             }
-            detailData.users = users
+            detailData.jenisBeasiswa = jenisBeasiswa;
 
-            new DokumenPengajuan().jenisBeasiswa(
-                detailData.jenisBeasiswa_id,
-                (err, jenisBeasiswa) => {
-                    if (err) {
-                        return res.status(500).json({
-                            success: false,
-                            message: 'Internal server error',
-                        });
-                    }
-                    detailData.jenisBeasiswa = jenisBeasiswa
+            new DokumenPengajuan().periodeBeasiswa(detailData.periodeBeasiswa_id, (err, periodeBeasiswa) => {
+                if (err) {
+                    return res.status(500).json({
+                        success: false,
+                        message: 'Internal server error',
+                    });
+                }
+                detailData.periodeBeasiswa = periodeBeasiswa;
 
-                    new DokumenPengajuan().periodeBeasiswa(
-                        detailData.periodeBeasiswa_id,
-                        (err, periodeBeasiswa) => {
-                            if (err) {
-                                return res.status(500).json({
-                                    success: false,
-                                    message: 'Internal server error',
-                                });
-                            }
-                            detailData.periodeBeasiswa = periodeBeasiswa
+                new DokumenPengajuan().findDokumen(
+                    detailData.users_id,
+                    detailData.jenisBeasiswa_id,
+                    detailData.periodeBeasiswa_id,
+                    (err, dokumens) => {
+                        if (err) {
+                            return res.status(500).json({
+                                success: false,
+                                message: 'Internal server error',
+                            });
+                        }
 
-                            new DokumenPengajuan().findDokumen(
-                                detailData.users_id,
-                                detailData.jenisBeasiswa_id,
-                                detailData.periodeBeasiswa_id,
-                                (err, dokumen) => {
-                                    if (err) {
-                                        return res.status(500).json({
-                                            success: false,
-                                            message: 'Internal server error',
-                                        });
-                                    }
-                                    detailData.dokumen = dokumen
+                        let dokumenData = [];
+                        let processed = 0;
 
+                        if (dokumens.length === 0) {
+                            detailData.dokumen = dokumenData;
+                            return res.status(200).json({
+                                success: true,
+                                data: detailData
+                            });
+                        }
 
-                                    res.status(200).json({
+                        dokumens.forEach(dokum => {
+                            new DokumenPengajuan().jenisDokumen(dokum.jenisDokumen_id, (err, jenisDokumen) => {
+                                if (err) {
+                                    return res.status(500).json({
+                                        success: false,
+                                        message: 'Internal server error',
+                                        error: err.message
+                                    });
+                                }
+                                dokum.jenisDokumen = jenisDokumen;
+                                dokumenData.push(dokum);
+                                processed++;
+
+                                if (processed === dokumens.length) {
+                                    detailData.dokumen = dokumenData;
+                                    return res.status(200).json({
                                         success: true,
                                         data: detailData
-                                    })
+                                    });
                                 }
-                            )
-                        }
-                    )
-                }
-            )
-        }
-    )
+                            });
+                        });
+                    }
+                );
+            });
+        });
+    });
 };
 
 

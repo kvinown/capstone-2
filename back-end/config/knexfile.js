@@ -10,10 +10,10 @@ module.exports = {
             database: 'capstone-2'
         },
         migrations: {
-            directory: '/Users/jov/Documents/Kuliah/Pemrograman web lanjut/TUBES UAS/capstone-2/back-end/migrations'// Menggunakan path.join untuk menghindari kesalahan path
+            directory: 'D:\\Kuliah - Kevin Owen\\SMT4\\PWL\\Project\\capstone-2\\capstone-2\\back-end\\migrations'
         },
         seeds: {
-            directory: '/Users/jov/Documents/Kuliah/Pemrograman web lanjut/TUBES UAS/capstone-2/back-end/seeds' // Menggunakan path.join untuk menghindari kesalahan path
+            directory: 'D:\\Kuliah - Kevin Owen\\SMT4\\PWL\\Project\\capstone-2\\capstone-2\\back-end\\seeds'
         }
     }
 };

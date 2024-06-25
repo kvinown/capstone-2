@@ -25,9 +25,9 @@ class PengajuanBeasiswaController extends Controller
         }
     }
 
-    public function detail($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id)
+    public function detail($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id, $ipk, $point_portofolio)
     {
-        $respone = $this->client->request('GET', "/api/dokumenPengajuan-detail/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id");
+        $respone = $this->client->request('GET', "/api/dokumenPengajuan-detail/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id/$ipk/$point_portofolio");
         $responeData = json_decode($respone->getBody()->getContents());
         $data  = $responeData->data;
 

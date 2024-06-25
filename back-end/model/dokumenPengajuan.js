@@ -10,15 +10,23 @@ class DokumenPengajuan extends Model {
         return DokumenPengajuan.instance;
     }
 
-    findPengajuan(users_id, jenisBeasiswa_id, periodeBeasiswa_id, callback) {
+    findDokumen(users_id, jenisBeasiswa_id, periodeBeasiswa_id, callback) {
         const query =
-            'SELECT * FROM pengajuanBeasiswa WHERE users_id = ? AND jenisBeasiswa_id = ? AND periodeBeasiswa_id = ?';
+            'SELECT * FROM dokumenPengajuan WHERE users_id = ? AND jenisBeasiswa_id = ? AND periodeBeasiswa_id = ?';
         this.db.query(query, [users_id, jenisBeasiswa_id, periodeBeasiswa_id], (err, result) => {
             if (err) return callback(err, null);
             callback(null, result);
         });
     }
 
+    jenisDokumen(id, callback) {
+        this.belongsTo(
+            'jenisDokumen',
+            'jenisDokumen_id',
+            'id',
+            id, callback
+        )
+    }
 
     users(id, callback) {
         this.belongsTo(

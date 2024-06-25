@@ -7,4 +7,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/pengajuanBeasiswa-index', [PengajuanBeasiswaController::class, 'index'])->name('pengajuanBeasiswa.index');
     Route::get('/pengajuanBeasiswa-create', [PengajuanBeasiswaController::class, 'create'])->name('pengajuanBeasiswa.create');
     Route::post('/pengajuanBeasiswa-store', [PengajuanBeasiswaController::class, 'store'])->name('pengajuanBeasiswa.store');
+    Route::get('/pengajuanBeasiswa-detail/{users_id}/{jenisBeasiswa_id}/{periodeBeasiswa_id}', [PengajuanBeasiswaController::class, 'detail'])->name('pengajuanBeasiswa.detail');
 });

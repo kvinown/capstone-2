@@ -17,16 +17,23 @@ class PengajuanBeasiswaController extends Controller
     public function index()
     {
         $response = $this->client->request('GET', '/api/pengajuanBeasiswa');
-        $responseDokumen = $this->client->request('GET', '/api/pengajuanBerkasBeasiswa');
         $statusCode = $response->getStatusCode();
         if ($statusCode == 200) {
             $pengajuanBeasiswa = json_decode($response->getBody()->getContents());
             $pengajuanBeasiswaData = $pengajuanBeasiswa->data;
-            $BerkasBeasiswa = json_decode($responseDokumen->getBody()->getContents());
-            $BerkasBeasiswaData = $BerkasBeasiswa->data;
-            return view('pengajuan.index', compact('pengajuanBeasiswaData','BerkasBeasiswaData'));
+            return view('pengajuan.index', compact('pengajuanBeasiswaData'));
         }
     }
+
+    public function detail($users_id, $jenisBeasiswa_id, $periodeBeasiswa_id)
+    {
+        $respone = $this->client->request('GET', "/api/dokumenPengajuan-detail/$users_id/$jenisBeasiswa_id/$periodeBeasiswa_id");
+        $responeData = json_decode($respone->getBody()->getContents());
+        $data  = $responeData->data;
+
+        return view('pengajuan.index-detail', compact('data'));
+    }
+
 
     public function create()
     {

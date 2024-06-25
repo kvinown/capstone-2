@@ -3,28 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu = document.getElementById('menu');
     const logoutButton = document.getElementById('logoutButton');
     const logoutForm = document.getElementById('logoutForm');
-
-    profileIcon.addEventListener('click', () => {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
-
-
-
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const profileIcon = document.getElementById('profileIcon');
-    const menu = document.getElementById('menu');
-    const logoutButton = document.getElementById('logoutButton');
-    const logoutForm = document.getElementById('logoutForm');
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    const addForm = document.getElementById('addForm');
+    const addSubmit = document.getElementById('addSubmit');
 
     if (profileIcon) {
         profileIcon.addEventListener('click', () => {
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         });
     }
-
-    const deleteButtons = document.querySelectorAll('.delete-button');
 
     deleteButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -48,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (logoutButton) {
-        logoutButton.addEventListener('click', function() {
+        logoutButton.addEventListener('click', function () {
             Swal.fire({
                 title: 'Apakah Anda yakin ingin logout?',
                 text: "Anda harus login kembali untuk mengakses layanan.",
@@ -61,6 +48,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }).then((result) => {
                 if (result.isConfirmed) {
                     logoutForm.submit();
+                }
+            });
+        });
+    }
+    if (addForm) {
+        addForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Hentikan submit form secara default
+
+            Swal.fire({
+                title: "Success",
+                text: "Data berhasil ditambahkan!",
+                icon: "success"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    addForm.submit(); // Lanjutkan submit form jika pengguna mengonfirmasi
                 }
             });
         });

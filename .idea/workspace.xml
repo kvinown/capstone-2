@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="new navbar">
+    <list default="true" id="762e5565-af73-46cc-a0ff-80d61d6f694c" name="Changes" comment="sweetalert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/controller/tanggalPeriodeBeasiswaController.js" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/controller/tanggalPeriodeBeasiswaController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/public/assets/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/public/assets/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/fakultas/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/jenisBeasiswa/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/periodeBeasiswa/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/programStudi/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/programStudi/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/role/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/tanggalPeriodeBeasiswa/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/capstone-2-app/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/capstone-2-app/resources/views/users/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -43,7 +59,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;cherno&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Joseph Adiwiguna/Documents/GitHub/capstone-2/views/capstone-2-app/resources/views&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -62,8 +78,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.17011.119" />
-        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.17011.119" />
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14475.35" />
       </set>
     </attachedChunks>
   </component>
@@ -91,6 +106,8 @@
       <workItem from="1717411915198" duration="220000" />
       <workItem from="1717412170549" duration="15839000" />
       <workItem from="1718943874800" duration="156000" />
+      <workItem from="1719195754788" duration="8286000" />
+      <workItem from="1719284674025" duration="3072000" />
     </task>
     <task id="LOCAL-00001" summary="new navbar">
       <option name="closed" value="true" />
@@ -100,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719161063807</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="sweetalert">
+      <option name="closed" value="true" />
+      <created>1719248022282</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719248022282</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +133,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="new navbar" />
+    <MESSAGE value="sweetalert" />
+    <option name="LAST_COMMIT_MESSAGE" value="sweetalert" />
   </component>
 </project>

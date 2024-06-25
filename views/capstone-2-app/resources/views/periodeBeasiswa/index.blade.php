@@ -7,7 +7,7 @@
                 <h3 class="text-center mb-3">Tabel Fakultas</h3>
                 <div class="mb-3 mt-2 ms-2">
                     <a href="{{route('periode.create')}}">
-                        <button class="btn btn-primary">Tambah Fakultas</button>
+                        <button class="btn btn-primary">Tambah Persetujuan</button>
                     </a>
                 </div>
                 <table class="table table-striped border border-secondary">
@@ -34,7 +34,7 @@
                                     <form action="{{route('periode.delete', $periode->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                                        <button type="button" class="btn btn-danger delete-button"><i class="bi bi-trash-fill"></i></button>
                                     </form>
                                 </td>
                             </tr>

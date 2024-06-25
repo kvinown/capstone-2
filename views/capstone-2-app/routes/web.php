@@ -43,6 +43,13 @@ Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
 
+// contact
+// Route untuk halaman kontak
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+
 // Other routes...
 // Route untuk halaman detail periode beasiswa
 Route::get('/periode/{id}', function ($id) {
@@ -85,5 +92,3 @@ Route::get('/prodi/{id}', function ($id) {
     // Contoh implementasi: ambil data prodi berdasarkan ID dan tampilkan di view
     return view('prodi.detail', ['id' => $id]);
 })->name('prodi-detail');
-
-

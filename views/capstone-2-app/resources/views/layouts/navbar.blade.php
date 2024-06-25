@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow" xmlns="http://www.w3.org/1999/html">
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="{{ route('home') }}">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="{{ route('home-index') }}">
             <img src="assets/img/Maranatha_Logo.png" width="100px">
         </a>
 
@@ -38,7 +38,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
+                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
             </div>

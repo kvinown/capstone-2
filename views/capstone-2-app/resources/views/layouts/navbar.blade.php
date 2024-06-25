@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light shadow">
+<nav class="navbar navbar-expand-lg navbar-light shadow" xmlns="http://www.w3.org/1999/html">
     <div class="container d-flex justify-content-between align-items-center">
 
-        <a class="navbar-brand text-success logo h1 align-self-center" href="">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="{{ route('home-index') }}">
             <img src="assets/img/Maranatha_Logo.png" width="100px">
         </a>
 
@@ -25,16 +25,20 @@
                             <li><a class="dropdown-item" href="{{route('programStudi.index')}}">Program Studi</a></li>
                             <li><a class="dropdown-item" href="{{route('jenisBeasiswa.index')}}">Jenis Beasiswa</a></li>
                             <li><a class="dropdown-item" href="{{route('users.index')}}">Users</a></li>
-                            <li><a class="dropdown-item" href="{{route('periode.index')}}">Periode Beasiswa</a></li>
-                            <li><a class="dropdown-item" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a></li>
                             <li><a class="dropdown-item" href="{{route('role.index')}}">Role</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Periode</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Periode
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{route('periode.index')}}">Periode Beasiswa</a></li>
+                            <li><a class="dropdown-item" href="{{route('tanggalPeriode.index')}}">Tanggal Periode Beasiswa</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a></li>
+                        <a class="nav-link" href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
             </div>

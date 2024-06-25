@@ -38,12 +38,17 @@ Route::get('/home', function () {
     return view('home');
 })->name('home-index');
 
-
-
 // Dashboard route
 Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
+
+// contact
+// Route untuk halaman kontak
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
 
 // Other routes...
 // Route untuk halaman detail periode beasiswa
